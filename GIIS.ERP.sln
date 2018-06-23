@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIIS.ERP.WMS", "GIIS.ERP.WMS\GIIS.ERP.WMS.csproj", "{BACCBFC5-8CD6-48E2-A444-03EEDDECDCA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIIS.ERP.WMS.WCF", "GIIS.ERP.WMS\GIIS.ERP.WMS.WCF.csproj", "{BACCBFC5-8CD6-48E2-A444-03EEDDECDCA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIIS.ERP.BOL", "GIIS.ERP.BOL\GIIS.ERP.BOL.csproj", "{B0085C70-583E-4B73-ABAA-1E26311CF929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BACCBFC5-8CD6-48E2-A444-03EEDDECDCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BACCBFC5-8CD6-48E2-A444-03EEDDECDCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BACCBFC5-8CD6-48E2-A444-03EEDDECDCA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0085C70-583E-4B73-ABAA-1E26311CF929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0085C70-583E-4B73-ABAA-1E26311CF929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0085C70-583E-4B73-ABAA-1E26311CF929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0085C70-583E-4B73-ABAA-1E26311CF929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
