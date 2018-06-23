@@ -43,11 +43,7 @@ namespace GIIS.ERP.WMS
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("@UserID", "admin");
             DataTable tbl = mMasterBLL.executeSelectProcedure("CS_SP_SELECT_USER_MENU", dic);
-            
-
-            //List<SysMenu> lst = new List<SysMenu>();
-            //DataTable dt = new DataTable();
-            //dt = mMasterBLL.selectDataTable("SYS_MENU", new SysMenu());
+           
             return  new SysMenu();
         }
     }
