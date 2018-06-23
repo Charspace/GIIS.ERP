@@ -14,6 +14,7 @@ namespace GIIS.ERP.WMS
     {
         public string GetData(int value)
         {
+            //testaan
             return string.Format("You entered: {0}", value);
         }
 
