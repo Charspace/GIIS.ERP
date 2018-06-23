@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using CHARS.HR.COMMON.BOL;
 
 namespace GIIS.ERP.WMS
 {
@@ -12,13 +13,22 @@ namespace GIIS.ERP.WMS
     [ServiceContract]
     public interface IWMS
     {
-        [OperationContract]
         void DoWork();
+
+        [OperationContract]        
         [WebInvoke(Method = "GET",
               RequestFormat = WebMessageFormat.Json,
               ResponseFormat = WebMessageFormat.Json,
               BodyStyle = WebMessageBodyStyle.Bare,
                UriTemplate = "getUserInfo")]
         UserInfo getUserInfo();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+              RequestFormat = WebMessageFormat.Json,
+              ResponseFormat = WebMessageFormat.Json,
+              BodyStyle = WebMessageBodyStyle.Bare,
+               UriTemplate = "getSysMenu")]
+        SysMenu getSysMenu();
     }
 }
