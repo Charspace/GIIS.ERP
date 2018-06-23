@@ -13,9 +13,7 @@ namespace GIIS.ERP.WMS
     public class Service1 : IService1
     {
         public string GetData(int value)
-        {
-            //testaan
-
+        {          
             return string.Format("You entered: {0}", value);
         }
 
