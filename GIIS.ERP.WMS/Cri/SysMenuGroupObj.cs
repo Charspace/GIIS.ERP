@@ -12,7 +12,6 @@ namespace GIIS.ERP.WMS
         {
             setDefaultValue();
         }
-
         #region "private member"
         private string mAsk;
         private string mTS;
