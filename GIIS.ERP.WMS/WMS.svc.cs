@@ -218,20 +218,20 @@ namespace GIIS.ERP.WMS
         public Message saveSysMenuGroup(SysMenuGroupCri menuGroup)
         {
             Message message = new Message();
-            SysMenuGroupCri dataMenuGroup = new SysMenuGroupCri();
+            SysMenuGroupObj dataMenuGroup = new SysMenuGroupObj();
             #region "Bind Object"
             if (menuGroup.MenuGpAsk == "0")
-                dataMenuGroup.MenuGpAsk = mUtility.getStrAsk().ToString();
+                dataMenuGroup.Ask = mUtility.getStrAsk().ToString();
             else
-                dataMenuGroup.MenuGpAsk = menuGroup.MenuGpAsk;
+                dataMenuGroup.Ask = menuGroup.MenuGpAsk;
 
             dataMenuGroup.TS = "1";
             dataMenuGroup.UD = "0";
             dataMenuGroup.DisplaySequence = menuGroup.DisplaySequence;
-            dataMenuGroup.Remark = menuGroup.Remark;
+            dataMenuGroup.UserRemark = menuGroup.Remark;
 
-            dataMenuGroup.MenuGpName = menuGroup.MenuGpName;
-            dataMenuGroup.MenuGpDesc = menuGroup.MenuGpDesc;
+            dataMenuGroup.MenuName = menuGroup.MenuGpName;
+            dataMenuGroup.MenuUrl = menuGroup.MenuGpDesc;
 
             Boolean isSave = mMasterBLL.saveObj("Sys_MenuTable", dataMenuGroup);
 
