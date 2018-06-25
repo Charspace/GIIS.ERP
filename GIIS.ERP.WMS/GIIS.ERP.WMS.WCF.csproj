@@ -99,8 +99,15 @@
     <Content Include="WMS.svc" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cri\SysMenuCri.cs" />
+    <Compile Include="Cri\SysMenuGroupCri.cs" />
+    <Compile Include="Cri\SysMenuGroupObj.cs" />
+    <Compile Include="Cri\UserInfo - Copy.cs" />
     <Compile Include="Cri\UserInfo.cs" />
     <Compile Include="IWMS.cs" />
+    <Compile Include="Json\Message.cs" />
+    <Compile Include="Json\SysMenu.cs" />
+    <Compile Include="Json\SysMenuGroup.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
@@ -112,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Json\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
