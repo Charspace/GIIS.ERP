@@ -101,7 +101,7 @@
   <ItemGroup>
     <Compile Include="Cri\SysMenuCri.cs" />
     <Compile Include="Cri\SysMenuGroupCri.cs" />
-    <Compile Include="Cri\SysMenuGroupObj.cs" />
+    <Compile Include="obj\SysMenuGroupObj.cs" />
     <Compile Include="Cri\UserInfo.cs" />
     <Compile Include="IWMS.cs" />
     <Compile Include="Json\Message.cs" />

@@ -229,7 +229,6 @@ namespace GIIS.ERP.WMS
             dataMenuGroup.UD = "0";
             dataMenuGroup.DisplaySequence = menuGroup.DisplaySequence;
             dataMenuGroup.UserRemark = menuGroup.Remark;
-
             dataMenuGroup.MenuName = menuGroup.MenuGpName;
             dataMenuGroup.MenuUrl = menuGroup.MenuGpDesc;
 
