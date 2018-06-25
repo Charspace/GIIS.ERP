@@ -29,6 +29,24 @@ namespace GIIS.ERP.WMS
               ResponseFormat = WebMessageFormat.Json,
               BodyStyle = WebMessageBodyStyle.Bare,
                UriTemplate = "getSysMenu")]
-        SysMenu getSysMenu();
+               List<SysMenu> getSysMenu();
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+             RequestFormat = WebMessageFormat.Json,
+             ResponseFormat = WebMessageFormat.Json,
+             BodyStyle = WebMessageBodyStyle.Bare,
+              UriTemplate = "getSysMenuGroup")]
+        List<SysMenuGroup> getSysMenuGroup(SysMenuGroupCri menuGroup);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+                   RequestFormat = WebMessageFormat.Json,
+                   ResponseFormat = WebMessageFormat.Json,
+                   BodyStyle = WebMessageBodyStyle.Bare,
+                    UriTemplate = "saveSysMenuGroup")]
+        Message saveSysMenuGroup(SysMenuGroupCri menuGroup);
+
     }
 }
