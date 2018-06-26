@@ -100,13 +100,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cri\SysMenuCri.cs" />
+    <Compile Include="Cri\SysUserCri.cs" />
     <Compile Include="Cri\SysMenuGroupCri.cs" />
-    <Compile Include="obj\SysMenuGroupObj.cs" />
+    <Compile Include="obj\SysMenuGroup.cs" />
+    <Compile Include="obj\SysControlGroupUserJun.cs" />
+    <Compile Include="obj\SysProductUserJun.cs" />
+    <Compile Include="obj\SysMenuGroupUserJun.cs" />
+    <Compile Include="obj\SysUser.cs" />
+    <Compile Include="obj\Product.cs" />
     <Compile Include="Cri\UserInfo.cs" />
     <Compile Include="IWMS.cs" />
     <Compile Include="Json\Message.cs" />
-    <Compile Include="Json\SysMenu.cs" />
-    <Compile Include="Json\SysMenuGroup.cs" />
+    <Compile Include="Json\SysUserJson.cs" />
+    <Compile Include="Json\SysMenuJson.cs" />
+    <Compile Include="Json\SysMenuGroupJson.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

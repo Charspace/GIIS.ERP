@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using CHARS.HR.COMMON.BOL;
+
 namespace GIIS.ERP.WMS
 {
     public class SysMenuGroupCri
@@ -15,8 +17,6 @@ namespace GIIS.ERP.WMS
 
         #region "private member"
         private string mMenuGpAsk;
-        private string mTS;
-        private string mUD;
         private string mDisplaySequence;
         private string mRemark;
         private string mUser;
@@ -27,7 +27,8 @@ namespace GIIS.ERP.WMS
         private string mMenuAsk;
         private string mMenuName;
         private string mMenuUrl;
-        private List<SysMenuCri> mMenuList;
+      
+        private List<SysMenu> mMenuList;
 
         #endregion
         #region "public member"
@@ -43,18 +44,7 @@ namespace GIIS.ERP.WMS
             get { return mPWD; }
             set { mPWD = value; }
         }
-        [DataMember]
-        public string TS
-        {
-            get { return mTS; }
-            set { mTS = value; }
-        }
-        [DataMember]
-        public string UD
-        {
-            get { return mUD; }
-            set { mUD = value; }
-        }
+      
         [DataMember]
         public string DisplaySequence
         {
@@ -105,7 +95,7 @@ namespace GIIS.ERP.WMS
             set { mMenuUrl = value; }
         }
         [DataMember]
-        public List<SysMenuCri> MenuList
+        public List<SysMenu> MenuList
         {
             get { return mMenuList; }
             set { mMenuList = value; }
@@ -123,6 +113,7 @@ namespace GIIS.ERP.WMS
             mMenuAsk = "";
             mMenuName = "";
             mMenuUrl = "";
+            mMenuList = new List<SysMenu>();
 
         }
         #endregion

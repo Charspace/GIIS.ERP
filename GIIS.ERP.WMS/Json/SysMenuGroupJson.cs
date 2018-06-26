@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class SysMenuGroup
+    public class SysMenuGroupJson
     {
-        public SysMenuGroup()
+        public SysMenuGroupJson()
         {
             setDefaultValue();
         }

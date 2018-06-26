@@ -28,17 +28,40 @@ namespace GIIS.ERP.WMS
               RequestFormat = WebMessageFormat.Json,
               ResponseFormat = WebMessageFormat.Json,
               BodyStyle = WebMessageBodyStyle.Bare,
-               UriTemplate = "getSysMenu")]
-               List<SysMenu> getSysMenu();
+               UriTemplate = "getSysMenuSetUp")]
+               List<SysMenu> getSysMenuSetUp();
 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+             UriTemplate = "getSysMenuGroupSetUp")]
+        List<SysMenuGroup> getSysMenuGroupSetUp();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+         RequestFormat = WebMessageFormat.Json,
+         ResponseFormat = WebMessageFormat.Json,
+         BodyStyle = WebMessageBodyStyle.Bare,
+          UriTemplate = "getSysControlGroupSetUp")]
+        List<ControlGroup> getSysControlGroupSetUp();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+          RequestFormat = WebMessageFormat.Json,
+          ResponseFormat = WebMessageFormat.Json,
+          BodyStyle = WebMessageBodyStyle.Bare,
+           UriTemplate = "getSysProductSetUp")]
+        List<Product> getSysProductSetUp();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
              RequestFormat = WebMessageFormat.Json,
              ResponseFormat = WebMessageFormat.Json,
              BodyStyle = WebMessageBodyStyle.Bare,
-              UriTemplate = "getSysMenuGroup")]
-        List<SysMenuGroup> getSysMenuGroup(SysMenuGroupCri menuGroup);
+              UriTemplate = "getSysMenuGroupList")]
+        List<SysMenuGroupJson> getSysMenuGroupList(SysMenuGroupCri menuGroup);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -47,6 +70,22 @@ namespace GIIS.ERP.WMS
                    BodyStyle = WebMessageBodyStyle.Bare,
                     UriTemplate = "saveSysMenuGroup")]
         Message saveSysMenuGroup(SysMenuGroupCri menuGroup);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+             UriTemplate = "getSysUserList")]
+        List<SysUserJson> getSysUserList(SysUserCri user);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+                   RequestFormat = WebMessageFormat.Json,
+                   ResponseFormat = WebMessageFormat.Json,
+                   BodyStyle = WebMessageBodyStyle.Bare,
+                    UriTemplate = "saveSysUser")]
+        Message saveSysUser(SysUserCri user);
 
     }
 }
