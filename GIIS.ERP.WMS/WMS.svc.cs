@@ -80,8 +80,6 @@ namespace GIIS.ERP.WMS
         #region "getSystemMenuSetUp"
         public List<SysMenu> getSysMenuSetUp()
         {
-            SysMenu a = new SysMenu();
-
             DataTable dt = mMasterBLL.selectDataTable("Sys_Menu", "");
             #region "Bind Object"
             List<SysMenu> list = new List<SysMenu>();
@@ -146,8 +144,6 @@ namespace GIIS.ERP.WMS
         #region "getSystemMenuGroupSetUp"
         public List<SysMenuGroup> getSysMenuGroupSetUp()
         {
-            SysMenu a = new SysMenu();
-
             DataTable dt = mMasterBLL.selectDataTable("Sys_MenuGroup", "");
             #region "Bind Object"
             List<SysMenuGroup> list = new List<SysMenuGroup>();
@@ -202,8 +198,6 @@ namespace GIIS.ERP.WMS
         #region "getSystemControlGroupSetUp"
         public List<ControlGroup> getSysControlGroupSetUp()
         {
-            ControlGroup a = new ControlGroup();
-
             DataTable dt = mMasterBLL.selectDataTable("Sys_ControlGroup", "");
             #region "Bind Object"
             List<ControlGroup> list = new List<ControlGroup>();
@@ -258,9 +252,7 @@ namespace GIIS.ERP.WMS
         #region "getSystemProductSetUp"
         public List<Product> getSysProductSetUp()
         {
-            Product a = new Product();
-
-            DataTable dt = mMasterBLL.selectDataTable("Sys_Product", "");
+              DataTable dt = mMasterBLL.selectDataTable("Sys_Product", "");
             #region "Bind Object"
             List<Product> list = new List<Product>();
 
@@ -314,9 +306,7 @@ namespace GIIS.ERP.WMS
         #region "getSystemMenuGroupList"
         public List<SysMenuGroupJson> getSysMenuGroupList(SysMenuGroupCri menuGroup)
         {
-            SysMenuGroupJson a = new SysMenuGroupJson();
-
-            Dictionary<string, string> dic = new Dictionary<string, string>();
+             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("@UserID", menuGroup.User);
             dic.Add("@Passowrd", menuGroup.PWD);
             dic.Add("@MenuGroupAsk", menuGroup.MenuGpAsk);
@@ -412,43 +402,44 @@ namespace GIIS.ERP.WMS
         public Message saveSysMenuGroup(SysMenuGroupCri menuGroupData)
         {
             Message message = new Message();
-            SysMenuGroup l_ReadMenuGroup = new SysMenuGroup();
+            SysMenuGroup l_MenuGroup = new SysMenuGroup();
             Boolean isAllSave = true;
            
             #region "Bind Object"
             if (menuGroupData.MenuGpAsk == "0")
-                l_ReadMenuGroup.Ask = mUtility.getStrAsk().ToString();
+                l_MenuGroup.Ask = mUtility.getStrAsk().ToString();
             else
-                l_ReadMenuGroup.Ask = menuGroupData.MenuGpAsk;
+                l_MenuGroup.Ask = menuGroupData.MenuGpAsk;
 
-            l_ReadMenuGroup.TS = "1";
-            l_ReadMenuGroup.UD = "1";
-            l_ReadMenuGroup.MenuGroupName = menuGroupData.MenuGpName;
-            l_ReadMenuGroup.MenuGroupDesc= menuGroupData.MenuGpDesc;
-            l_ReadMenuGroup.DisplaySequence = menuGroupData.DisplaySequence;
-            l_ReadMenuGroup.Remark = menuGroupData.Remark;
+            l_MenuGroup.TS = "1";
+            l_MenuGroup.UD = "1";
+            l_MenuGroup.MenuGroupName = menuGroupData.MenuGpName;
+            l_MenuGroup.MenuGroupDesc= menuGroupData.MenuGpDesc;
+            l_MenuGroup.DisplaySequence = menuGroupData.DisplaySequence;
+            l_MenuGroup.Remark = menuGroupData.Remark;
             
-            Boolean isSave = mMasterBLL.saveObj("SYS_MENUGROUP", l_ReadMenuGroup);
+            Boolean isSave = mMasterBLL.saveObj("SYS_MENUGROUP", l_MenuGroup);
 
             if (isSave)
             {
                 #region "save Sys_MenuGroup_User_JUN"
 
-                SysMenuGroupJunction l_ReadMenuGroupJunforDelete = new SysMenuGroupJunction();
-                l_ReadMenuGroupJunforDelete.MenuGroup = l_ReadMenuGroup.Ask;
-                
-                Boolean isDelete = mMasterBLL.deleteObj("SYS_MENUGROUP_JUN", l_ReadMenuGroupJunforDelete , 3);
+                SysMenuGroupJunction l_DELMenuGpJun = new SysMenuGroupJunction();
+                l_DELMenuGpJun.MenuGroup = l_MenuGroup.Ask;
+                //l_ReadMenuGroupJunforDelete.Ask = "20180626004226980";
+
+                Boolean isDelete = mMasterBLL.deleteObj("SYS_MENUGROUP_JUN", l_DELMenuGpJun, 4);
             
                 for (int i=0 ;i< menuGroupData.MenuList.Count; i++)
                 {
-                    SysMenuGroupJunction l_ReadMenuGroupJun = new SysMenuGroupJunction();
-                    l_ReadMenuGroupJun.Ask = mUtility.getStrAsk().ToString();
-                    l_ReadMenuGroupJun.TS = "1";
-                    l_ReadMenuGroupJun.UD = "1";
-                    l_ReadMenuGroupJun.Menu = menuGroupData.MenuList[i].Ask;
-                    l_ReadMenuGroupJun.MenuGroup = l_ReadMenuGroup.Ask;
+                    SysMenuGroupJunction l_MenuGroupJun = new SysMenuGroupJunction();
+                    l_MenuGroupJun.Ask = mUtility.getStrAsk().ToString();
+                    l_MenuGroupJun.TS = "1";
+                    l_MenuGroupJun.UD = "1";
+                    l_MenuGroupJun.Menu = menuGroupData.MenuList[i].Ask;
+                    l_MenuGroupJun.MenuGroup = l_MenuGroup.Ask;
 
-                    Boolean isJunSave = mMasterBLL.saveObj("Sys_MENUGROUP_JUN", l_ReadMenuGroupJun);
+                    Boolean isJunSave = mMasterBLL.saveObj("Sys_MENUGROUP_JUN", l_MenuGroupJun);
 
                     if (!isJunSave) isAllSave = false;
 
@@ -481,8 +472,6 @@ namespace GIIS.ERP.WMS
         #region "getSystemUserList"
         public List<SysUserJson> getSysUserList(SysUserCri user)
         {
-            SysUserJson a = new SysUserJson();
-
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("@UserID", user.User);
             dic.Add("@Passowrd", user.PWD);
@@ -574,71 +563,52 @@ namespace GIIS.ERP.WMS
         public Message saveSysUser(SysUserCri userData)
         {
             Message message = new Message();
-            SysUser l_ReadUser = new SysUser();
+            SysUser l_User = new SysUser();
             Boolean isAllSave = true;
 
             #region "Bind Object"
             if (userData.Ask == "0")
-                l_ReadUser.Ask = mUtility.getStrAsk().ToString();
+                l_User.Ask = mUtility.getStrAsk().ToString();
             else
-                l_ReadUser.Ask = userData.Ask;
+                l_User.Ask = userData.Ask;
 
-            l_ReadUser.TS = "1";
-            l_ReadUser.UD = "1";
-            l_ReadUser.UserID = userData.UserID;
-            l_ReadUser.UserDescription = userData.UserDesc;
-            l_ReadUser.UserPassword = userData.PWD;
-            l_ReadUser.UserEmail = userData.UserEmail;
-            l_ReadUser.UserPhone = userData.UserPhone;
+            l_User.TS = "1";
+            l_User.UD = "1";
+            l_User.UserID = userData.UserID;
+            l_User.UserDescription = userData.UserDesc;
+            l_User.UserPassword = userData.PWD;
+            l_User.UserEmail = userData.UserEmail;
+            l_User.UserPhone = userData.UserPhone;
 
-            Boolean isSave = mMasterBLL.saveObj("SYS_USER", l_ReadUser);
+            Boolean isSave = mMasterBLL.saveObj("SYS_USER", l_User);
 
             if (isSave)
             {
-                #region "save Sys_MenuGroup_User_JUN"
-                SysMenuGroupUserJun l_ReadMenuGroupUserJunforDelete = new SysMenuGroupUserJun();
-                l_ReadMenuGroupUserJunforDelete.Ask = "0";
-                l_ReadMenuGroupUserJunforDelete.TS = "1";
-                l_ReadMenuGroupUserJunforDelete.UD = "1";
-                l_ReadMenuGroupUserJunforDelete.User = l_ReadUser.Ask;
-                l_ReadMenuGroupUserJunforDelete.MenuGroup = "";
-
-                Boolean isDelete = mMasterBLL.deleteObj("SYS_MENUGROUP_USER_JUN", l_ReadMenuGroupUserJunforDelete, 3);
-
-                for (int i = 0; i < userData.MenuGroupList.Count; i++)
-                {
-                    SysMenuGroupUserJun l_ReadMenuGroupUSERJun = new SysMenuGroupUserJun();
-                    l_ReadMenuGroupUSERJun.Ask = mUtility.getStrAsk().ToString();
-                    l_ReadMenuGroupUSERJun.TS = "1";
-                    l_ReadMenuGroupUSERJun.UD = "1";
-                    l_ReadMenuGroupUSERJun.User = l_ReadUser.Ask;
-                    l_ReadMenuGroupUSERJun.MenuGroup = userData.MenuGroupList[i].Ask;
-
-                    Boolean isJunSave = mMasterBLL.saveObj("Sys_MENUGROUP_USER_JUN", l_ReadMenuGroupUSERJun);
-
-                    if (!isJunSave) isAllSave = false;
-
-                }
-
-                #endregion
 
                 #region "save Sys_ControlGroup_User_JUN"
-                SysControlGroupUserJun l_ReadControlGroupUserJunforDelete = new SysControlGroupUserJun();
-                l_ReadControlGroupUserJunforDelete.User = l_ReadUser.Ask;
+                //SysControlGroupUserJun l_DELControlGpUserJun = new SysControlGroupUserJun();
+                //l_DELControlGpUserJun.User = "1";
 
-                Boolean isDelete2 = mMasterBLL.deleteObj("SYS_CONTROLGROUP_USER_JUN", l_ReadControlGroupUserJunforDelete, 3);
+                // mMasterBLL.deleteObj("SYS_CONTROLGROUP_USER_JUN", l_DELControlGpUserJun, 3);
+
+                SysControlGroupUserJun l_DELMenuGpJun = new SysControlGroupUserJun();
+                l_DELMenuGpJun.User = "1";
+                //l_ReadMenuGroupJunforDelete.Ask = "20180626004226980";
+
+                Boolean isDelete = mMasterBLL.deleteObj("SYS_CONTROLGROUP_USER_JUN", l_DELMenuGpJun, 4);
 
                 for (int i = 0; i < userData.ControlGroupList.Count; i++)
                 {
-                    SysControlGroupUserJun l_ReadControlGroupUSERJun = new SysControlGroupUserJun();
-                    l_ReadControlGroupUSERJun.Ask = mUtility.getStrAsk().ToString();
-                    l_ReadControlGroupUSERJun.TS = "1";
-                    l_ReadControlGroupUSERJun.UD = "1";
-                    l_ReadControlGroupUSERJun.User = l_ReadUser.Ask;
-                    l_ReadControlGroupUSERJun.ControlGroup = userData.ControlGroupList[i].Ask;
+                    SysControlGroupUserJun l_ControlGroupUSERJun = new SysControlGroupUserJun();
+                    l_ControlGroupUSERJun.Ask = mUtility.getStrAsk().ToString();
+                    l_ControlGroupUSERJun.TS = "1";
+                    l_ControlGroupUSERJun.UD = "1";
+                    l_ControlGroupUSERJun.User = l_User.Ask;
+                    l_ControlGroupUSERJun.ControlGroup = userData.ControlGroupList[i].Ask;
+                    l_ControlGroupUSERJun.DisplaySequence = userData.DisplaySequence;
+                    l_ControlGroupUSERJun.Remark = userData.Remark;
                     
-
-                    Boolean isJunSave = mMasterBLL.saveObj("Sys_CONTROLGROUP_USER_JUN", l_ReadControlGroupUSERJun);
+                    Boolean isJunSave = mMasterBLL.saveObj("Sys_CONTROLGROUP_USER_JUN", l_ControlGroupUSERJun);
 
                     if (!isJunSave) isAllSave = false;
 
@@ -646,25 +616,50 @@ namespace GIIS.ERP.WMS
 
                 #endregion
 
+                #region "save Sys_MenuGroup_User_JUN"
+                SysUserMenuGroupJunction l_DELMenuGpUserJun = new SysUserMenuGroupJunction();
+                l_DELMenuGpUserJun.User = "1";
+
+                Boolean isDelete2 = mMasterBLL.deleteObj("SYS_MENUGROUP_USER_JUN", l_DELMenuGpUserJun, 4);
+
+                for (int i = 0; i < userData.MenuGroupList.Count; i++)
+                {
+                    SysMenuGroupUserJun l_MenuGroupUSERJun = new SysMenuGroupUserJun();
+                    l_MenuGroupUSERJun.Ask = mUtility.getStrAsk().ToString();
+                    l_MenuGroupUSERJun.TS = "1";
+                    l_MenuGroupUSERJun.UD = "1";
+                    l_MenuGroupUSERJun.User = l_User.Ask;
+                    l_MenuGroupUSERJun.MenuGroup = userData.MenuGroupList[i].Ask;
+
+                    Boolean isJunSave = mMasterBLL.saveObj("SYS_MENUGROUP_USER_JUN", l_MenuGroupUSERJun);
+                  
+                    if (!isJunSave) isAllSave = false;
+
+                }
+
+                #endregion
+
+               
+
                 #region "save Sys_Product_User_JUN"
-                SysProductUserJunc l_ReadProductUserJunforDelete = new SysProductUserJunc();
-                l_ReadProductUserJunforDelete.User = l_ReadUser.Ask;
-                l_ReadProductUserJunforDelete.TS = "1";
-                l_ReadProductUserJunforDelete.UD = "1";
+                SysProductUserJunc l_DELProductUserJun = new SysProductUserJunc();
+                l_DELProductUserJun.User = l_User.Ask;
+                l_DELProductUserJun.TS = "1";
+                l_DELProductUserJun.UD = "1";
                 
 
-                Boolean isDelete3 = mMasterBLL.deleteObj("SYS_Product_USER_JUN", l_ReadControlGroupUserJunforDelete, 1);
+                Boolean isDelete3 = mMasterBLL.deleteObj("SYS_Product_USER_JUN", l_DELProductUserJun, 5);
 
                 for (int i = 0; i < userData.ProductList.Count; i++)
                 {
-                    SysProductUserJunc l_ReadProductUSERJun = new SysProductUserJunc();
-                    l_ReadProductUSERJun.Ask = mUtility.getStrAsk().ToString();
-                    l_ReadProductUSERJun.TS = "1";
-                    l_ReadProductUSERJun.UD = "1";
-                    l_ReadProductUSERJun.Product = userData.ProductList[i].Ask;
-                    l_ReadProductUSERJun.User = l_ReadUser.Ask;
+                    SysProductUserJunc l_ProductUSERJun = new SysProductUserJunc();
+                    l_ProductUSERJun.Ask = mUtility.getStrAsk().ToString();
+                    l_ProductUSERJun.TS = "1";
+                    l_ProductUSERJun.UD = "1";
+                    l_ProductUSERJun.Product = userData.ProductList[i].Ask;
+                    l_ProductUSERJun.User = l_User.Ask;
 
-                    Boolean isJunSave = mMasterBLL.saveObj("Sys_PRODUCT_USER_JUN", l_ReadProductUSERJun);
+                    Boolean isJunSave = mMasterBLL.saveObj("Sys_PRODUCT_USER_JUN", l_ProductUSERJun);
 
                     if (!isJunSave) isAllSave = false;
 

@@ -110,7 +110,7 @@
     <Compile Include="obj\Product.cs" />
     <Compile Include="Cri\UserInfo.cs" />
     <Compile Include="IWMS.cs" />
-    <Compile Include="Json\Message.cs" />
+    <Compile Include="obj\Message.cs" />
     <Compile Include="Json\SysUserJson.cs" />
     <Compile Include="Json\SysMenuJson.cs" />
     <Compile Include="Json\SysMenuGroupJson.cs" />
