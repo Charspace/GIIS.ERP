@@ -102,6 +102,7 @@
     <Compile Include="Cri\SysMenuCri.cs" />
     <Compile Include="Cri\SysUserCri.cs" />
     <Compile Include="Cri\SysMenuGroupCri.cs" />
+    <Compile Include="obj\SysMenuGroupJun.cs" />
     <Compile Include="obj\SysMenuGroup.cs" />
     <Compile Include="obj\SysControlGroupUserJun.cs" />
     <Compile Include="obj\SysProductUserJun.cs" />

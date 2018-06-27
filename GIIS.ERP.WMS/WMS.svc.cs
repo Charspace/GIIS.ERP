@@ -436,12 +436,14 @@ namespace GIIS.ERP.WMS
             
                 for (int i=0 ;i< menuGroupData.MenuList.Count; i++)
                 {
-                    SysMenuGroupJunction l_MenuGroupJun = new SysMenuGroupJunction();
+                    SysMenuGroupJun l_MenuGroupJun = new SysMenuGroupJun();
                     l_MenuGroupJun.Ask = mUtility.getStrAsk().ToString();
                     l_MenuGroupJun.TS = "1";
                     l_MenuGroupJun.UD = "1";
                     l_MenuGroupJun.Menu = menuGroupData.MenuList[i].Ask;
                     l_MenuGroupJun.MenuGroup = l_MenuGroup.Ask;
+                    l_MenuGroupJun.DisplaySequence = "0";
+                    l_MenuGroupJun.Remark = "";
 
                     Boolean isJunSave = mMasterBLL.saveObj("Sys_MENUGROUP_JUN", l_MenuGroupJun);
 
@@ -586,11 +588,17 @@ namespace GIIS.ERP.WMS
             l_User.DisplaySequence = userData.DisplaySequence;
             l_User.Remark = userData.Remark;
 
+            //SysUser l_DELUser = new SysUser();
+            //l_DELUser.Ask = "20180626160254564";
+
+            //Boolean del = mMasterBLL.deleteObj("Sys_User",l_DELUser,1);
+            
+
             Boolean isSave = false;
             if(userData.Ask == "0")
                  isSave = mMasterBLL.saveObj("SYS_USER", l_User);
             else
-                isSave = mMasterBLL.updateObj("SYS_USER", l_User);
+                 isSave = mMasterBLL.updateObj("SYS_USER", l_User);
 
 
             if (isSave)
