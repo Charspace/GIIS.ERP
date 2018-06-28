@@ -6,40 +6,41 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class SysMenuGroupJson
+    public class SysProductJson
     {
-        public SysMenuGroupJson()
+        public SysProductJson()
         {
             setDefaultValue();
         }
 
         #region "private member"
-        private string mMenuGpAsk;
-        private string mMenuGpName;
-        private string mMenuGpDesc;
+        private string mProductAsk;
+        private string mProductName;
+        private string mProductDesc;
        
         #endregion
         #region "public member"
         [DataMember]
 
-        public string MenuGpAsk
+        public string ProductAsk
         {
-            get { return mMenuGpAsk; }
-            set { mMenuGpAsk = value; }
+            get { return mProductAsk; }
+            set { mProductAsk = value; }
         }
         [DataMember]
-        public string MenuGpName
+        public string ProductName
         {
-            get { return mMenuGpName; }
-            set { mMenuGpName = value; }
+            get { return mProductName; }
+            set { mProductName = value; }
 
         }
         [DataMember]
-        public string MenuGpDesc
+        public string ProductDesc
         {
-            get { return mMenuGpDesc; }
-            set { mMenuGpDesc = value; }
+            get { return mProductDesc; }
+            set { mProductDesc = value; }
         }
+        
         
         #endregion
      
@@ -48,9 +49,9 @@ namespace GIIS.ERP.WMS
         #region"Default Property"
         public void setDefaultValue()
         {
-            mMenuGpAsk = "";
-            mMenuGpName = "";
-            mMenuGpDesc = "";
+            mProductAsk = "";
+            mProductName = "";
+            mProductDesc = "";
         }
         #endregion
     }

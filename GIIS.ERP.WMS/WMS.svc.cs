@@ -41,15 +41,15 @@ namespace GIIS.ERP.WMS
         }
 
         #region "getSystemMenuSetUp"
-        public List<SysMenu> getSysMenuSetUp()
+        public List<SysMenuJson> getSysMenuSetUp()
         {
             DataTable dt = mMasterBLL.selectDataTable("Sys_Menu", "");
             #region "Bind Object"
-            List<SysMenu> list = new List<SysMenu>();
+            List<SysMenuJson> list = new List<SysMenuJson>();
 
             foreach (DataRow row in dt.Rows)
             {
-                SysMenu obj = new SysMenu();
+                SysMenuJson obj = new SysMenuJson();
 
                 foreach (var prop in obj.GetType().GetProperties())
                     {
@@ -58,35 +58,37 @@ namespace GIIS.ERP.WMS
                        // PropertyInfo propertyInfo = obj.GetType().GetProperty(prop.Name);
                         //propertyInfo.SetValue(obj, Convert.ChangeType(row[prop.Name], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo = obj.GetType().GetProperty("Ask");
+                        PropertyInfo propertyInfo = obj.GetType().GetProperty("ID");
                         propertyInfo.SetValue(obj, Convert.ChangeType(row["Ask"], propertyInfo.PropertyType), null);
-
-                        PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
-                        propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
-
-                        PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
-                        propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
 
                         PropertyInfo propertyInfo4 = obj.GetType().GetProperty("MenuName");
                         propertyInfo4.SetValue(obj, Convert.ChangeType(row["Menu Name"], propertyInfo4.PropertyType), null);
-                        
-                        PropertyInfo propertyInfo5 = obj.GetType().GetProperty("MenuUrl");
-                        propertyInfo5.SetValue(obj, Convert.ChangeType(row["Menu Url"], propertyInfo5.PropertyType), null);
 
-                        PropertyInfo propertyInfo6 = obj.GetType().GetProperty("Pannel");
-                        propertyInfo6.SetValue(obj, Convert.ChangeType(row["Menu Pannel"], propertyInfo6.PropertyType), null);
+                        PropertyInfo propertyInfo2 = obj.GetType().GetProperty("ParentID");
+                        propertyInfo2.SetValue(obj, Convert.ChangeType(row["ParentID"], propertyInfo2.PropertyType), null);
 
-                        PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Class");
-                        propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu Class"], propertyInfo7.PropertyType), null);
+                        PropertyInfo propertyInfo3 = obj.GetType().GetProperty("SubMenuWidth");
+                        propertyInfo3.SetValue(obj, Convert.ChangeType(row["SubMenuWidth"], propertyInfo3.PropertyType), null);
 
-                        PropertyInfo propertyInfo8 = obj.GetType().GetProperty("DisplaySequence");
-                        propertyInfo8.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo8.PropertyType), null);
 
-                        PropertyInfo propertyInfo9 = obj.GetType().GetProperty("List");
-                        propertyInfo9.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo9.PropertyType), null);
 
-                        PropertyInfo propertyInfo10 = obj.GetType().GetProperty("Status");
-                        propertyInfo10.SetValue(obj, Convert.ChangeType(row["Menu Status"], propertyInfo10.PropertyType), null);
+                        //PropertyInfo propertyInfo5 = obj.GetType().GetProperty("MenuUrl");
+                        //propertyInfo5.SetValue(obj, Convert.ChangeType(row["Menu Url"], propertyInfo5.PropertyType), null);
+
+                        //PropertyInfo propertyInfo6 = obj.GetType().GetProperty("Pannel");
+                        //propertyInfo6.SetValue(obj, Convert.ChangeType(row["Menu Pannel"], propertyInfo6.PropertyType), null);
+
+                        //PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Class");
+                        //propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu Class"], propertyInfo7.PropertyType), null);
+
+                        //PropertyInfo propertyInfo8 = obj.GetType().GetProperty("DisplaySequence");
+                        //propertyInfo8.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo8.PropertyType), null);
+
+                        //PropertyInfo propertyInfo9 = obj.GetType().GetProperty("List");
+                        //propertyInfo9.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo9.PropertyType), null);
+
+                        //PropertyInfo propertyInfo10 = obj.GetType().GetProperty("Status");
+                        //propertyInfo10.SetValue(obj, Convert.ChangeType(row["Menu Status"], propertyInfo10.PropertyType), null);
 
                         //PropertyInfo propertyInfo11 = obj.GetType().GetProperty("Pannel");
                         //propertyInfo11.SetValue(obj, Convert.ChangeType(row["Menu Pannel"], propertyInfo11.PropertyType), null);
@@ -105,15 +107,15 @@ namespace GIIS.ERP.WMS
         #endregion
 
         #region "getSystemMenuGroupSetUp"
-        public List<SysMenuGroup> getSysMenuGroupSetUp()
+        public List<SysMenuGroupJson> getSysMenuGroupSetUp()
         {
             DataTable dt = mMasterBLL.selectDataTable("Sys_MenuGroup", "");
             #region "Bind Object"
-            List<SysMenuGroup> list = new List<SysMenuGroup>();
+            List<SysMenuGroupJson> list = new List<SysMenuGroupJson>();
 
             foreach (DataRow row in dt.Rows)
             {
-                SysMenuGroup obj = new SysMenuGroup();
+                SysMenuGroupJson obj = new SysMenuGroupJson();
 
                 foreach (var prop in obj.GetType().GetProperties())
                 {
@@ -122,19 +124,19 @@ namespace GIIS.ERP.WMS
                         // PropertyInfo propertyInfo = obj.GetType().GetProperty(prop.Name);
                         //propertyInfo.SetValue(obj, Convert.ChangeType(row[prop.Name], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo = obj.GetType().GetProperty("Ask");
+                        PropertyInfo propertyInfo = obj.GetType().GetProperty("MenuGpAsk");
                         propertyInfo.SetValue(obj, Convert.ChangeType(row["Ask"], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
-                        propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
+                        //PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
+                        //propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
 
-                        PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
-                        propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
+                        //PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
+                        //propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
                         
-                        PropertyInfo propertyInfo4 = obj.GetType().GetProperty("MenuGroupName");
+                        PropertyInfo propertyInfo4 = obj.GetType().GetProperty("MenuGpName");
                         propertyInfo4.SetValue(obj, Convert.ChangeType(row["Menu Group Name"], propertyInfo4.PropertyType), null);
 
-                        PropertyInfo propertyInfo5 = obj.GetType().GetProperty("MenuGroupDesc");
+                        PropertyInfo propertyInfo5 = obj.GetType().GetProperty("MenuGpDesc");
                         propertyInfo5.SetValue(obj, Convert.ChangeType(row["Menu Group Description"], propertyInfo5.PropertyType), null);
 
                         PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
@@ -159,15 +161,15 @@ namespace GIIS.ERP.WMS
         #endregion
 
         #region "getSystemControlGroupSetUp"
-        public List<ControlGroup> getSysControlGroupSetUp()
+        public List<SysControlGroupJson> getSysControlGroupSetUp()
         {
             DataTable dt = mMasterBLL.selectDataTable("Sys_ControlGroup", "");
             #region "Bind Object"
-            List<ControlGroup> list = new List<ControlGroup>();
+            List<SysControlGroupJson> list = new List<SysControlGroupJson>();
 
             foreach (DataRow row in dt.Rows)
             {
-                ControlGroup obj = new ControlGroup();
+                SysControlGroupJson obj = new SysControlGroupJson();
 
                 foreach (var prop in obj.GetType().GetProperties())
                 {
@@ -176,26 +178,26 @@ namespace GIIS.ERP.WMS
                         // PropertyInfo propertyInfo = obj.GetType().GetProperty(prop.Name);
                         //propertyInfo.SetValue(obj, Convert.ChangeType(row[prop.Name], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo = obj.GetType().GetProperty("Ask");
+                        PropertyInfo propertyInfo = obj.GetType().GetProperty("ControlGpAsk");
                         propertyInfo.SetValue(obj, Convert.ChangeType(row["Ask"], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
-                        propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
+                        //PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
+                        //propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
 
-                        PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
-                        propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
+                        //PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
+                        //propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
 
-                        PropertyInfo propertyInfo4 = obj.GetType().GetProperty("ControlGroupName");
+                        PropertyInfo propertyInfo4 = obj.GetType().GetProperty("ControlGpName");
                         propertyInfo4.SetValue(obj, Convert.ChangeType(row["Control Group Name"], propertyInfo4.PropertyType), null);
 
-                        PropertyInfo propertyInfo5 = obj.GetType().GetProperty("ControlGroupDesc");
+                        PropertyInfo propertyInfo5 = obj.GetType().GetProperty("ControlGpDesc");
                         propertyInfo5.SetValue(obj, Convert.ChangeType(row["Control Group Description"], propertyInfo5.PropertyType), null);
 
-                        PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
-                        propertyInfo6.SetValue(obj, Convert.ChangeType(row["DisplaySequence"], propertyInfo6.PropertyType), null);
+                        //PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
+                        //propertyInfo6.SetValue(obj, Convert.ChangeType(row["DisplaySequence"], propertyInfo6.PropertyType), null);
 
-                        PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Remark");
-                        propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo7.PropertyType), null);
+                        //PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Remark");
+                        //propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo7.PropertyType), null);
 
 
                     }
@@ -213,15 +215,15 @@ namespace GIIS.ERP.WMS
         #endregion
 
         #region "getSystemProductSetUp"
-        public List<Product> getSysProductSetUp()
+        public List<SysProductJson> getSysProductSetUp()
         {
               DataTable dt = mMasterBLL.selectDataTable("Sys_Product", "");
             #region "Bind Object"
-            List<Product> list = new List<Product>();
+            List<SysProductJson> list = new List<SysProductJson>();
 
             foreach (DataRow row in dt.Rows)
             {
-                Product obj = new Product();
+                SysProductJson obj = new SysProductJson();
 
                 foreach (var prop in obj.GetType().GetProperties())
                 {
@@ -230,26 +232,26 @@ namespace GIIS.ERP.WMS
                         // PropertyInfo propertyInfo = obj.GetType().GetProperty(prop.Name);
                         //propertyInfo.SetValue(obj, Convert.ChangeType(row[prop.Name], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo = obj.GetType().GetProperty("Ask");
+                        PropertyInfo propertyInfo = obj.GetType().GetProperty("ProductAsk");
                         propertyInfo.SetValue(obj, Convert.ChangeType(row["Ask"], propertyInfo.PropertyType), null);
 
-                        PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
-                        propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
+                        //PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
+                        //propertyInfo2.SetValue(obj, Convert.ChangeType(row["TS"], propertyInfo2.PropertyType), null);
 
-                        PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
-                        propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
+                        //PropertyInfo propertyInfo3 = obj.GetType().GetProperty("UD");
+                        //propertyInfo3.SetValue(obj, Convert.ChangeType(row["UD"], propertyInfo3.PropertyType), null);
 
                         PropertyInfo propertyInfo4 = obj.GetType().GetProperty("ProductName");
                         propertyInfo4.SetValue(obj, Convert.ChangeType(row["Product Name"], propertyInfo4.PropertyType), null);
 
                         PropertyInfo propertyInfo5 = obj.GetType().GetProperty("ProductDesc");
-                        propertyInfo5.SetValue(obj, Convert.ChangeType(row["Product Description"], propertyInfo5.PropertyType), null);
+                        propertyInfo5.SetValue(obj, Convert.ChangeType(row["Product Detail"], propertyInfo5.PropertyType), null);
 
-                        PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
-                        propertyInfo6.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo6.PropertyType), null);
+                        //PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
+                        //propertyInfo6.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo6.PropertyType), null);
 
-                        PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Remark");
-                        propertyInfo7.SetValue(obj, Convert.ChangeType(row["Remark"], propertyInfo7.PropertyType), null);
+                        //PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Remark");
+                        //propertyInfo7.SetValue(obj, Convert.ChangeType(row["Remark"], propertyInfo7.PropertyType), null);
 
 
                     }
@@ -267,7 +269,7 @@ namespace GIIS.ERP.WMS
         #endregion
 
         #region "getSystemMenuGroupList"
-        public List<SysMenuGroupJson> getSysMenuGroupList(SysMenuGroupCri menuGroup)
+        public List<SysMenuGroupListJson> getSysMenuGroupList(SysMenuGroupCri menuGroup)
         {
              Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("@UserID", menuGroup.User);
@@ -280,12 +282,12 @@ namespace GIIS.ERP.WMS
             dic.Add("@MenuUrl", menuGroup.MenuUrl);
             
             DataTable dt = mMasterBLL.executeSelectProcedure("CS_LMS_MenuGroup", dic);
-            List<SysMenuGroupJson> list = new List<SysMenuGroupJson>();
+            List<SysMenuGroupListJson> list = new List<SysMenuGroupListJson>();
             #region "bind data"
             
             foreach (DataRow row in dt.Rows)
             {
-                SysMenuGroupJson obj = new SysMenuGroupJson();
+                SysMenuGroupListJson obj = new SysMenuGroupListJson();
 
                 foreach (var prop in obj.GetType().GetProperties())
                 {

@@ -16,35 +16,50 @@ namespace GIIS.ERP.WMS
         #region "private member"
         private string mMenuAsk;
         private string mMenuName;
-        
+        private string mSubMenuWidth;
+        private string mParentID;
 
         #endregion
         #region "public member"
         [DataMember]
-
-        public string Ask
+        public string ID
         {
             get { return mMenuAsk; }
             set { mMenuAsk = value; }
         }
+        [DataMember]
         public string MenuName
         {
             get { return mMenuName; }
             set { mMenuName = value; }
 
         }
+        [DataMember]
+        public string SubMenuWidth
+        {
+            get { return mSubMenuWidth; }
+            set { mSubMenuWidth = value; }
+        }
+        [DataMember]
+        public string ParentID
+        {
+            get { return mParentID; }
+            set { mParentID = value; }
+        }
+        
 
-        
-        
+
         #endregion
-     
-        
-        
+
+
+
         #region"Default Property"
         public void setDefaultValue()
         {
             mMenuName = "";
             mMenuAsk = "";
+            mSubMenuWidth = "";
+            mParentID = "";
         }
         #endregion
     }

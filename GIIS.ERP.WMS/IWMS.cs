@@ -29,7 +29,7 @@ namespace GIIS.ERP.WMS
               ResponseFormat = WebMessageFormat.Json,
               BodyStyle = WebMessageBodyStyle.Bare,
                UriTemplate = "getSysMenuSetUp")]
-               List<SysMenu> getSysMenuSetUp();
+               List<SysMenuJson> getSysMenuSetUp();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
@@ -37,7 +37,7 @@ namespace GIIS.ERP.WMS
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
              UriTemplate = "getSysMenuGroupSetUp")]
-        List<SysMenuGroup> getSysMenuGroupSetUp();
+        List<SysMenuGroupJson> getSysMenuGroupSetUp();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
@@ -45,7 +45,7 @@ namespace GIIS.ERP.WMS
          ResponseFormat = WebMessageFormat.Json,
          BodyStyle = WebMessageBodyStyle.Bare,
           UriTemplate = "getSysControlGroupSetUp")]
-        List<ControlGroup> getSysControlGroupSetUp();
+        List<SysControlGroupJson> getSysControlGroupSetUp();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
@@ -53,7 +53,7 @@ namespace GIIS.ERP.WMS
           ResponseFormat = WebMessageFormat.Json,
           BodyStyle = WebMessageBodyStyle.Bare,
            UriTemplate = "getSysProductSetUp")]
-        List<Product> getSysProductSetUp();
+        List<SysProductJson> getSysProductSetUp();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -61,7 +61,7 @@ namespace GIIS.ERP.WMS
              ResponseFormat = WebMessageFormat.Json,
              BodyStyle = WebMessageBodyStyle.Bare,
               UriTemplate = "getSysMenuGroupList")]
-        List<SysMenuGroupJson> getSysMenuGroupList(SysMenuGroupCri menuGroup);
+        List<SysMenuGroupListJson> getSysMenuGroupList(SysMenuGroupCri menuGroup);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

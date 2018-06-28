@@ -102,11 +102,15 @@
     <Compile Include="Cri\SysMenuCri.cs" />
     <Compile Include="Cri\SysUserCri.cs" />
     <Compile Include="Cri\SysMenuGroupCri.cs" />
+    <Compile Include="Json\SysControlGroupJson.cs" />
+    <Compile Include="Json\SysMenuGroupListJson.cs" />
+    <Compile Include="Json\SysMenuGroupJson.cs" />
     <Compile Include="obj\SysMenuGroupJun.cs" />
     <Compile Include="obj\SysMenuGroup.cs" />
     <Compile Include="obj\SysControlGroupUserJun.cs" />
     <Compile Include="obj\SysProductUserJun.cs" />
     <Compile Include="obj\SysMenuGroupUserJun.cs" />
+    <Compile Include="obj\SysMenu.cs" />
     <Compile Include="obj\SysUser.cs" />
     <Compile Include="obj\Product.cs" />
     <Compile Include="Cri\UserInfo.cs" />
@@ -114,7 +118,7 @@
     <Compile Include="obj\Message.cs" />
     <Compile Include="Json\SysUserJson.cs" />
     <Compile Include="Json\SysMenuJson.cs" />
-    <Compile Include="Json\SysMenuGroupJson.cs" />
+    <Compile Include="Json\SysProductJson.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
