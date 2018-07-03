@@ -106,6 +106,7 @@
     <Compile Include="Json\SysControlGroupJson.cs" />
     <Compile Include="Json\SysMenuGroupListJson.cs" />
     <Compile Include="Json\SysMenuGroupJson.cs" />
+    <Compile Include="obj\ControlGroup.cs" />
     <Compile Include="obj\SysMenuGroupJun.cs" />
     <Compile Include="obj\SysMenuGroup.cs" />
     <Compile Include="obj\SysControlGroupUserJun.cs" />
@@ -131,7 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DB\" />
+    <Folder Include="DB\Function\" />
+    <Folder Include="DB\SP\" />
+    <Folder Include="DB\Table\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
