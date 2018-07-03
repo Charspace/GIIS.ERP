@@ -99,6 +99,7 @@
     <Content Include="WMS.svc" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cri\AuthorizationCri.cs" />
     <Compile Include="Cri\SysMenuCri.cs" />
     <Compile Include="Cri\SysUserCri.cs" />
     <Compile Include="Cri\SysMenuGroupCri.cs" />

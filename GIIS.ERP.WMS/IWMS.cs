@@ -24,36 +24,36 @@ namespace GIIS.ERP.WMS
         UserInfo getUserInfo();
 
         [OperationContract]
-        [WebInvoke(Method = "GET",
+        [WebInvoke(Method = "POST",
               RequestFormat = WebMessageFormat.Json,
               ResponseFormat = WebMessageFormat.Json,
               BodyStyle = WebMessageBodyStyle.Bare,
-               UriTemplate = "getSysMenuSetUp")]
-               List<SysMenuJson> getSysMenuSetUp();
+               UriTemplate = "getAccessMenu")]
+               List<SysMenuJson> getAccessMenu(AuthorizationCri menu);
 
         [OperationContract]
-        [WebInvoke(Method = "GET",
+        [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Bare,
-             UriTemplate = "getSysMenuGroupSetUp")]
-        List<SysMenuGroupJson> getSysMenuGroupSetUp();
+             UriTemplate = "getSysMenuGroup")]
+        List<SysMenuGroupJson> getSysMenuGroup(AuthorizationCri menugroup);
 
         [OperationContract]
-        [WebInvoke(Method = "GET",
+        [WebInvoke(Method = "POST",
          RequestFormat = WebMessageFormat.Json,
          ResponseFormat = WebMessageFormat.Json,
          BodyStyle = WebMessageBodyStyle.Bare,
-          UriTemplate = "getSysControlGroupSetUp")]
-        List<SysControlGroupJson> getSysControlGroupSetUp();
+          UriTemplate = "getSysControlGroup")]
+        List<SysControlGroupJson> getSysControlGroup(AuthorizationCri controlgroup);
 
         [OperationContract]
-        [WebInvoke(Method = "GET",
+        [WebInvoke(Method = "POST",
           RequestFormat = WebMessageFormat.Json,
           ResponseFormat = WebMessageFormat.Json,
           BodyStyle = WebMessageBodyStyle.Bare,
-           UriTemplate = "getSysProductSetUp")]
-        List<SysProductJson> getSysProductSetUp();
+           UriTemplate = "getSysProduct")]
+        List<SysProductJson> getSysProduct(AuthorizationCri product);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

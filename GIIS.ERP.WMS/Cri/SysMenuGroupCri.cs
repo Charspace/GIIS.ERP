@@ -27,6 +27,7 @@ namespace GIIS.ERP.WMS
         private string mMenuAsk;
         private string mMenuName;
         private string mMenuUrl;
+        private string mproductAsk;
       
         private List<SysMenu> mMenuList;
 
@@ -100,6 +101,12 @@ namespace GIIS.ERP.WMS
             get { return mMenuList; }
             set { mMenuList = value; }
         }
+        [DataMember]
+        public string ProductAsk
+        {
+            get { return mproductAsk; }
+            set { mproductAsk = value; }
+        }
 
         #endregion
         #region"Default Property"
@@ -114,7 +121,7 @@ namespace GIIS.ERP.WMS
             mMenuName = "";
             mMenuUrl = "";
             mMenuList = new List<SysMenu>();
-
+            mproductAsk = "0";
         }
         #endregion
     }

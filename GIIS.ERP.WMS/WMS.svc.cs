@@ -40,12 +40,19 @@ namespace GIIS.ERP.WMS
             return new UserInfo();
         }
 
-        #region "getSystemMenuSetUp"
-        public List<SysMenuJson> getSysMenuSetUp()
+        #region "getAccessMenu"
+        public List<SysMenuJson> getAccessMenu(AuthorizationCri accessMenu)
         {
-            DataTable dt = mMasterBLL.selectDataTable("Sys_Menu", "");
-            #region "Bind Object"
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", accessMenu.UserID);
+            dic.Add("@Password", accessMenu.Password);
+            dic.Add("@ProductAsk", accessMenu.ProductAsk);
+         
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_USER_MENU_PRODUCT", dic);
             List<SysMenuJson> list = new List<SysMenuJson>();
+
+            #region "Bind Object"
 
             foreach (DataRow row in dt.Rows)
             {
@@ -55,9 +62,6 @@ namespace GIIS.ERP.WMS
                     {
                     try
                     {
-                       // PropertyInfo propertyInfo = obj.GetType().GetProperty(prop.Name);
-                        //propertyInfo.SetValue(obj, Convert.ChangeType(row[prop.Name], propertyInfo.PropertyType), null);
-
                         PropertyInfo propertyInfo = obj.GetType().GetProperty("ID");
                         propertyInfo.SetValue(obj, Convert.ChangeType(row["Ask"], propertyInfo.PropertyType), null);
 
@@ -69,29 +73,7 @@ namespace GIIS.ERP.WMS
 
                         PropertyInfo propertyInfo3 = obj.GetType().GetProperty("SubMenuWidth");
                         propertyInfo3.SetValue(obj, Convert.ChangeType(row["SubMenuWidth"], propertyInfo3.PropertyType), null);
-
-
-
-                        //PropertyInfo propertyInfo5 = obj.GetType().GetProperty("MenuUrl");
-                        //propertyInfo5.SetValue(obj, Convert.ChangeType(row["Menu Url"], propertyInfo5.PropertyType), null);
-
-                        //PropertyInfo propertyInfo6 = obj.GetType().GetProperty("Pannel");
-                        //propertyInfo6.SetValue(obj, Convert.ChangeType(row["Menu Pannel"], propertyInfo6.PropertyType), null);
-
-                        //PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Class");
-                        //propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu Class"], propertyInfo7.PropertyType), null);
-
-                        //PropertyInfo propertyInfo8 = obj.GetType().GetProperty("DisplaySequence");
-                        //propertyInfo8.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo8.PropertyType), null);
-
-                        //PropertyInfo propertyInfo9 = obj.GetType().GetProperty("List");
-                        //propertyInfo9.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo9.PropertyType), null);
-
-                        //PropertyInfo propertyInfo10 = obj.GetType().GetProperty("Status");
-                        //propertyInfo10.SetValue(obj, Convert.ChangeType(row["Menu Status"], propertyInfo10.PropertyType), null);
-
-                        //PropertyInfo propertyInfo11 = obj.GetType().GetProperty("Pannel");
-                        //propertyInfo11.SetValue(obj, Convert.ChangeType(row["Menu Pannel"], propertyInfo11.PropertyType), null);
+                                              
                     }
                     catch
                     {
@@ -106,10 +88,17 @@ namespace GIIS.ERP.WMS
         }
         #endregion
 
-        #region "getSystemMenuGroupSetUp"
-        public List<SysMenuGroupJson> getSysMenuGroupSetUp()
+        #region "getSystemMenuGroup"
+        public List<SysMenuGroupJson> getSysMenuGroup(AuthorizationCri menugp)
         {
-            DataTable dt = mMasterBLL.selectDataTable("Sys_MenuGroup", "");
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", menugp.UserID);
+            dic.Add("@Password", menugp.Password);
+            dic.Add("@ProductAsk", menugp.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_MenuGroup", dic);
+          
+
             #region "Bind Object"
             List<SysMenuGroupJson> list = new List<SysMenuGroupJson>();
 
@@ -121,10 +110,7 @@ namespace GIIS.ERP.WMS
                 {
                     try
                     {
-                        // PropertyInfo propertyInfo = obj.GetType().GetProperty(prop.Name);
-                        //propertyInfo.SetValue(obj, Convert.ChangeType(row[prop.Name], propertyInfo.PropertyType), null);
-
-                        PropertyInfo propertyInfo = obj.GetType().GetProperty("MenuGpAsk");
+                         PropertyInfo propertyInfo = obj.GetType().GetProperty("MenuGpAsk");
                         propertyInfo.SetValue(obj, Convert.ChangeType(row["Ask"], propertyInfo.PropertyType), null);
 
                         //PropertyInfo propertyInfo2 = obj.GetType().GetProperty("TS");
@@ -139,11 +125,11 @@ namespace GIIS.ERP.WMS
                         PropertyInfo propertyInfo5 = obj.GetType().GetProperty("MenuGpDesc");
                         propertyInfo5.SetValue(obj, Convert.ChangeType(row["Menu Group Description"], propertyInfo5.PropertyType), null);
 
-                        PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
-                        propertyInfo6.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo6.PropertyType), null);
+                        //PropertyInfo propertyInfo6 = obj.GetType().GetProperty("DisplaySequence");
+                        //propertyInfo6.SetValue(obj, Convert.ChangeType(row["Display Sequence"], propertyInfo6.PropertyType), null);
 
-                        PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Remark");
-                        propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo7.PropertyType), null);
+                        //PropertyInfo propertyInfo7 = obj.GetType().GetProperty("Remark");
+                        //propertyInfo7.SetValue(obj, Convert.ChangeType(row["Menu List"], propertyInfo7.PropertyType), null);
 
                        
                     }
@@ -160,10 +146,14 @@ namespace GIIS.ERP.WMS
         }
         #endregion
 
-        #region "getSystemControlGroupSetUp"
-        public List<SysControlGroupJson> getSysControlGroupSetUp()
+        #region "getSystemControlGroup"
+        public List<SysControlGroupJson> getSysControlGroup(AuthorizationCri controlGroup)
         {
-            DataTable dt = mMasterBLL.selectDataTable("Sys_ControlGroup", "");
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", controlGroup.UserID);
+            dic.Add("@Password", controlGroup.Password);
+            dic.Add("@ProductAsk", controlGroup.ProductAsk);
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_ControlGroup", dic);
             #region "Bind Object"
             List<SysControlGroupJson> list = new List<SysControlGroupJson>();
 
@@ -214,10 +204,14 @@ namespace GIIS.ERP.WMS
         }
         #endregion
 
-        #region "getSystemProductSetUp"
-        public List<SysProductJson> getSysProductSetUp()
+        #region "getSystemProduct"
+        public List<SysProductJson> getSysProduct(AuthorizationCri product)
         {
-              DataTable dt = mMasterBLL.selectDataTable("Sys_Product", "");
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", product.UserID);
+            dic.Add("@Password", product.Password);
+            dic.Add("@ProductAsk", product.ProductAsk);
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Product", dic);
             #region "Bind Object"
             List<SysProductJson> list = new List<SysProductJson>();
 
@@ -273,15 +267,16 @@ namespace GIIS.ERP.WMS
         {
              Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("@UserID", menuGroup.User);
-            dic.Add("@Passowrd", menuGroup.PWD);
+            dic.Add("@Password", menuGroup.PWD);
             dic.Add("@MenuGroupAsk", menuGroup.MenuGpAsk);
             dic.Add("@MenuGroupName", menuGroup.MenuGpName);
             dic.Add("@MenuGroupDesc", menuGroup.MenuGpDesc);
             dic.Add("@MenuAsk", menuGroup.MenuAsk);
             dic.Add("@MenuName", menuGroup.MenuName);
             dic.Add("@MenuUrl", menuGroup.MenuUrl);
-            
-            DataTable dt = mMasterBLL.executeSelectProcedure("CS_LMS_MenuGroup", dic);
+            dic.Add("@ProductAsk", menuGroup.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_MenuGroupList", dic);
             List<SysMenuGroupListJson> list = new List<SysMenuGroupListJson>();
             #region "bind data"
             
@@ -445,7 +440,7 @@ namespace GIIS.ERP.WMS
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
             dic.Add("@UserID", user.User);
-            dic.Add("@Passowrd", user.PWD);
+            dic.Add("@Password", user.PWD);
             dic.Add("@UserAsk", user.Ask);
             dic.Add("@UserDesc", user.UserDesc);
             dic.Add("@UserPhone", user.UserPhone);
@@ -460,7 +455,7 @@ namespace GIIS.ERP.WMS
             dic.Add("@ProductName", user.ProductName);
             dic.Add("@ProductDesc", user.ProductDesc);
 
-            DataTable dt = mMasterBLL.executeSelectProcedure("CS_LMS_User", dic);
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_User", dic);
             List<SysUserJson> list = new List<SysUserJson>();
             #region "bind data"
 
