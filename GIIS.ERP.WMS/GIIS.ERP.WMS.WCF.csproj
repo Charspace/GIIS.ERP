@@ -73,6 +73,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -100,13 +101,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cri\AuthorizationCri.cs" />
+    <Compile Include="Cri\POCri.cs" />
+    <Compile Include="Cri\PRFEWarehouseCri.cs" />
+    <Compile Include="Cri\SKUCri.cs" />
+    <Compile Include="Cri\TallyCri.cs" />
     <Compile Include="Cri\SysMenuCri.cs" />
+    <Compile Include="Cri\SysControlGroupCri.cs" />
+    <Compile Include="Cri\LoginCri.cs" />
     <Compile Include="Cri\SysUserCri.cs" />
     <Compile Include="Cri\SysMenuGroupCri.cs" />
+    <Compile Include="Cri\ShipperCri.cs" />
+    <Compile Include="Cri\TruckCri.cs" />
+    <Compile Include="Json\AgentJson.cs" />
+    <Compile Include="Json\BookingJson.cs" />
+    <Compile Include="Json\CountryJson.cs" />
+    <Compile Include="Json\POJson.cs" />
+    <Compile Include="Json\PREFWarehouseDetailJson.cs" />
+    <Compile Include="Json\PRFEWarehouseJson.cs" />
+    <Compile Include="Json\ShipperJson.cs" />
+    <Compile Include="Json\SKUJson.cs" />
     <Compile Include="Json\SysControlGroupJson.cs" />
+    <Compile Include="Json\SysControlGroupListJson.cs" />
+    <Compile Include="Json\PRFEWarehouseListJson.cs" />
     <Compile Include="Json\SysMenuGroupListJson.cs" />
     <Compile Include="Json\SysMenuGroupJson.cs" />
+    <Compile Include="Json\SysControlJson.cs" />
+    <Compile Include="Json\TruckJson.cs" />
+    <Compile Include="obj\Agent.cs" />
+    <Compile Include="obj\Booking.cs" />
+    <Compile Include="obj\BookingShipperJun.cs" />
+    <Compile Include="obj\Country.cs" />
+    <Compile Include="obj\POSKUJun.cs" />
+    <Compile Include="obj\Shipper.cs" />
+    <Compile Include="obj\TruckPOJun.cs" />
     <Compile Include="obj\ControlGroup.cs" />
+    <Compile Include="obj\PO.cs" />
+    <Compile Include="obj\SKU.cs" />
+    <Compile Include="obj\SysControlGroup.cs" />
+    <Compile Include="obj\SysControl.cs" />
+    <Compile Include="obj\SysControlGroupJun.cs" />
+    <Compile Include="obj\BookingTruckJun.cs" />
     <Compile Include="obj\SysMenuGroupJun.cs" />
     <Compile Include="obj\SysMenuGroup.cs" />
     <Compile Include="obj\SysControlGroupUserJun.cs" />
@@ -121,6 +155,7 @@
     <Compile Include="Json\SysUserJson.cs" />
     <Compile Include="Json\SysMenuJson.cs" />
     <Compile Include="Json\SysProductJson.cs" />
+    <Compile Include="obj\Truck.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

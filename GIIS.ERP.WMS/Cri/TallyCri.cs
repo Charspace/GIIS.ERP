@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,60 +6,49 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class SysMenuJson
+    public class TallyCri
     {
-        public SysMenuJson()
+        public TallyCri()
         {
             setDefaultValue();
         }
 
         #region "private member"
+        private string mMenuGpAsk;
+        private string mTS;
+        private string mUD;
+        private string mDisplaySequence;
+        private string mRemark;
+        private string mUser;
+        private string mPWD;
         private string mMenuAsk;
         private string mMenuName;
-        private string mSubMenuWidth;
-        private string mParentID;
+
 
         #endregion
         #region "public member"
         [DataMember]
-        public string id
+        public string Ask
         {
             get { return mMenuAsk; }
             set { mMenuAsk = value; }
         }
         [DataMember]
-        public string text
+        public string MenuName
         {
             get { return mMenuName; }
             set { mMenuName = value; }
 
         }
-        [DataMember]
-        public string SubMenuWidth
-        {
-            get { return mSubMenuWidth; }
-            set { mSubMenuWidth = value; }
-        }
-        [DataMember]
-        public string parentid
-        {
-            get { return mParentID; }
-            set { mParentID = value; }
-        }
-        
+
 
 
         #endregion
-
-
-
         #region"Default Property"
         public void setDefaultValue()
         {
             mMenuName = "";
             mMenuAsk = "";
-            mSubMenuWidth = "";
-            mParentID = "";
         }
         #endregion
     }
