@@ -29,6 +29,7 @@ namespace GIIS.ERP.WMS
         private string mNoOfContainer;
         private string mDisplaySequence;
         private string mRemark;
+        private string mLogisticTypeAsk;
 
 
         #endregion
@@ -118,6 +119,11 @@ namespace GIIS.ERP.WMS
             get { return mRemark; }
             set { mRemark = value; }
         }
+        public string LogisticTypeAsk
+        {
+            get { return mLogisticTypeAsk; }
+            set { mLogisticTypeAsk = value; }
+        }
 
 
         #endregion
@@ -140,7 +146,7 @@ namespace GIIS.ERP.WMS
             mNoOfContainer = "0";
             mDisplaySequence = "";
             mRemark = "";
-            
+            mLogisticTypeAsk = "0";
         }
         #endregion
     }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class SKUCri
+    public class SKUBarcodeCri
     {
-        public SKUCri()
+        public SKUBarcodeCri()
         {
             setDefaultValue();
         }
@@ -20,26 +20,16 @@ namespace GIIS.ERP.WMS
         private string mAsk;
         private string mTS;
         private string mUD;
-        private string mSKUName;
-        private string mSKUDetails;
+        private string mSKUAsk;
+        private string mBarcodeAsk;
         private string mDimensionWidth;
         private string mDimensionHeight;
         private string mDimensionBase;
         private string mSKUWeight;
-        private string mPlanQty;
+        private string mQty;
         private string mUOMAsk;
-        private string mReceivedQty;
-        private string mReference;
-        private string mTruckID;
-        private string mTruckType;
-        private string mGoodQty;
-        private string mDamageQty;
-        private string mShortLandQty;
-        private string mOverlandQty;
-        private string mGoodphoto;
-        private string mDamagephoto;
-        private string mShortLandphoto;
-        private string mOverlandphoto;
+        private string mBarcodeStatus;
+        private string mMergedBarcodeAsk;
         private string mStatus;
         private string mDisplaySequence;
         private string mRemark;
@@ -52,20 +42,22 @@ namespace GIIS.ERP.WMS
         {
             get { return mUserID; }
             set { mUserID = value; }
+
         }
         [DataMember]
         public string Password
         {
             get { return mPassword; }
             set { mPassword = value; }
+
         }
         [DataMember]
-            public string ProductAsk
+        public String ProductAsk
         {
             get { return mProductAsk; }
             set { mProductAsk = value; }
+
         }
-   
         [DataMember]
         public string Ask
         {
@@ -85,16 +77,16 @@ namespace GIIS.ERP.WMS
             set { mUD = value; }
         }
         [DataMember]
-        public string SKUName
+        public string SKUAsk
         {
-            get { return mSKUName; }
-            set { mSKUName = value; }
+            get { return mSKUAsk; }
+            set { mSKUAsk = value; }
         }
         [DataMember]
-        public string SKUDetails
+        public string BarcodeAsk
         {
-            get { return mSKUDetails; }
-            set { mSKUDetails = value; }
+            get { return mBarcodeAsk; }
+            set { mBarcodeAsk = value; }
         }
         [DataMember]
         public string DimensionWidth
@@ -121,10 +113,10 @@ namespace GIIS.ERP.WMS
             set { mSKUWeight = value; }
         }
         [DataMember]
-        public string PlanQty
+        public string Qty
         {
-            get { return mPlanQty; }
-            set { mPlanQty = value; }
+            get { return mQty; }
+            set { mQty = value; }
         }
         [DataMember]
         public string UOMAsk
@@ -133,77 +125,18 @@ namespace GIIS.ERP.WMS
             set { mUOMAsk = value; }
         }
         [DataMember]
-        public string ReceivedQty
+        public string BarcodeStatus
         {
-            get { return mReceivedQty; }
-            set { mReceivedQty = value; }
+            get { return mBarcodeStatus; }
+            set { mBarcodeStatus = value; }
         }
         [DataMember]
-        public string Reference
+        public string MergedBarcodeAsk
         {
-            get { return mReference; }
-            set { mReference = value; }
+            get { return mMergedBarcodeAsk; }
+            set { mMergedBarcodeAsk = value; }
         }
-        [DataMember]
-        public string TruckID
-        {
-            get { return mTruckID; }
-            set { mTruckID = value; }
-        }
-        [DataMember]
-        public string TruckType
-        {
-            get { return mTruckType; }
-            set { mTruckType = value; }
-        }
-        [DataMember]
-        public string GoodQty
-        {
-            get { return mGoodQty; }
-            set { mGoodQty = value; }
-        }
-        [DataMember]
-        public string DamageQty
-        {
-            get { return mDamageQty; }
-            set { mDamageQty = value; }
-        }
-        [DataMember]
-        public string ShortLandQty
-        {
-            get { return mShortLandQty; }
-            set { mShortLandQty = value; }
-        }
-        [DataMember]
-        public string OverlandQty
-        {
-            get { return mOverlandQty; }
-            set { mOverlandQty = value; }
-        }
-        [DataMember]
-        public string Goodphoto
-        {
-            get { return mGoodphoto; }
-            set { mGoodphoto = value; }
-        }
-        [DataMember]
-        public string Damagephoto
-        {
-            get { return mDamagephoto; }
-            set { mDamagephoto = value; }
-        }
-        [DataMember]
-        public string ShortLandphoto
-        {
-            get { return mShortLandphoto; }
-            set { mShortLandphoto = value; }
-        }
-        [DataMember]
-        public string Overlandphoto
-        {
-            get { return mOverlandphoto; }
-            set { mOverlandphoto = value; }
-        }
+        
         [DataMember]
         public string Status
         {
@@ -222,6 +155,7 @@ namespace GIIS.ERP.WMS
             get { return mRemark; }
             set { mRemark = value; }
         }
+        
 
         #endregion
         #region"Default Property"
@@ -231,32 +165,22 @@ namespace GIIS.ERP.WMS
             mPassword = "";
             mProductAsk = "0";
             mAsk = "0";
-            mTS = "0";
-            mUD = "0";
-            mSKUName = "";
-            mSKUDetails = "";
+            mTS = "";
+            mUD = "";
+            mSKUAsk = "0";
+            mBarcodeAsk = "0";
             mDimensionWidth = "0";
             mDimensionHeight = "0";
             mDimensionBase = "0";
             mSKUWeight = "0";
-            mPlanQty = "0";
+            mQty = "";
             mUOMAsk = "0";
-            mReceivedQty = "";
-            mReference = "";
-            mTruckID = "";
-            mTruckType = "";
-            mGoodQty = "";
-            mDamageQty = "";
-            mShortLandQty = "";
-            mOverlandQty = "";
-            mGoodphoto = "";
-            mDamagephoto = "";
-            mShortLandphoto = "";
-            mOverlandphoto = "";
+            mBarcodeStatus = "0";
+            mMergedBarcodeAsk = "0";
             mStatus = "0";
             mDisplaySequence = "0";
             mRemark = "";
-           
+            
         }
         #endregion
     }

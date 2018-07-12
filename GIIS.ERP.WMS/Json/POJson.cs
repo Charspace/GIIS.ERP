@@ -13,7 +13,9 @@ namespace GIIS.ERP.WMS
         #region"Private Property"
 
         private string mPOAsk;
-       
+        private string mPOTS;
+        private string mPOUD;
+
         private string mPONo;
         private string mPOShippingMark;
         private string mPOReferenceNo;
@@ -33,7 +35,17 @@ namespace GIIS.ERP.WMS
             get { return mPOAsk; }
             set { mPOAsk = value; }
         }
-         public string PONo
+        public string POTS
+        {
+            get { return mPOTS; }
+            set { mPOTS = value; }
+        }
+        public string POUD
+        {
+            get { return mPOUD; }
+            set { mPOUD = value; }
+        }
+        public string PONo
         {
             get { return mPONo; }
             set { mPONo = value; }
@@ -85,6 +97,8 @@ namespace GIIS.ERP.WMS
             public void setDefaultValue()
         {
             mPOAsk = "0";
+            mPOTS = "0";
+            mPOUD = "0";
             mPONo = "";
             mPOShippingMark = "";
             mPOReferenceNo = "";

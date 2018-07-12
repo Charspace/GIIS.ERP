@@ -14,6 +14,9 @@ namespace GIIS.ERP.WMS
         }
         #region"Private Property"
         private string mSKUAsk;
+        private string mSKUTS;
+        private string mSKUUD;
+
         private string mSKUName;
         private string mSKUDetails;
         private string mSKUDimensionWidth;
@@ -51,8 +54,17 @@ namespace GIIS.ERP.WMS
             get { return mSKUAsk; }
             set { mSKUAsk = value; }
         }
-       
-              
+        public string SKUTS
+        {
+            get { return mSKUTS; }
+            set { mSKUTS = value; }
+        }
+        public string SKUUD
+        {
+            get { return mSKUUD; }
+            set { mSKUUD = value; }
+        }
+
         public string SKUName
         {
             get { return mSKUName; }
@@ -217,6 +229,8 @@ namespace GIIS.ERP.WMS
         public void setDefaultValue()
         {
             mSKUAsk = "0";
+            mSKUTS = "0";
+            mSKUUD = "0";
             mSKUName = "";
             mSKUDetails = "";
             mSKUDimensionWidth = "0";
