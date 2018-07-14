@@ -232,5 +232,38 @@ namespace GIIS.ERP.WMS
        BodyStyle = WebMessageBodyStyle.Bare,
        UriTemplate = "saveDeliverlist")]
         Message saveDeliverlist(DeliverlistCri criteria);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+          RequestFormat = WebMessageFormat.Json,
+          ResponseFormat = WebMessageFormat.Json,
+          BodyStyle = WebMessageBodyStyle.Bare,
+           UriTemplate = "savePRFEDirect")]
+        List<PREFDirectListJson> savePRFEDirect(PRFEDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "getPRFEDirectList")]
+        List<PREFDirectListJson> getPRFEDirectList(PRFEDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare,
+         UriTemplate = "saveCheckerDirect")]
+        List<CheckerDirectJson> saveCheckerDirect(CheckerDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "getCheckerDirect")]
+        List<CheckerDirectJson> getCheckerDirect(CheckerDirectCri criteria);
     }
 }

@@ -102,10 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cri\AuthorizationCri.cs" />
+    <Compile Include="Cri\CheckerDirectCri.cs" />
     <Compile Include="Cri\DeliverlistCri.cs" />
     <Compile Include="Cri\CreatePicklistCri.cs" />
     <Compile Include="Cri\POCri.cs" />
     <Compile Include="Cri\AllocationWarehouseCri.cs" />
+    <Compile Include="Cri\PREFDirectCri.cs" />
     <Compile Include="Cri\PRFEWarehouseCri.cs" />
     <Compile Include="Cri\SKUBarcodeCri.cs" />
     <Compile Include="Cri\SKUBarcodeLoactionJunCri.cs" />
@@ -124,9 +126,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Json\AgentJson.cs" />
+    <Compile Include="Json\CheckerDirectJson.cs" />
     <Compile Include="Json\CreatePickListDetailJson.cs" />
     <Compile Include="Json\CreatePicklistJson.cs" />
     <Compile Include="Json\CreatePicklistListJson.cs" />
+    <Compile Include="Json\PREFDirectDetailJson.cs" />
+    <Compile Include="Json\PRFEDirectListJson.cs" />
     <Compile Include="Json\SKUBarcodeLocationJunJson.cs" />
     <Compile Include="Json\BookingJson.cs" />
     <Compile Include="Json\PalletJson.cs" />
@@ -151,6 +156,7 @@
     <Compile Include="Json\TruckJson.cs" />
     <Compile Include="obj\Agent.cs" />
     <Compile Include="obj\Booking.cs" />
+    <Compile Include="obj\BookingContainerJun.cs" />
     <Compile Include="obj\BookingShipperJun.cs" />
     <Compile Include="obj\Container.cs" />
     <Compile Include="obj\Country.cs" />

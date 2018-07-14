@@ -41,6 +41,8 @@ namespace GIIS.ERP.WMS
             return new UserInfo();
         }
 
+        #region"SYSTEM"
+
         #region "getAccessMenu"
         public List<SysMenuJson> getAccessMenu(AuthorizationCri accessMenu)
         {
@@ -799,6 +801,190 @@ namespace GIIS.ERP.WMS
         }
         #endregion
 
+        #endregion
+
+
+        #region"SETUP"
+
+        #region "getAgentList"
+        public List<AgentJson> getAgentList(AuthorizationCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Agent", dic);
+            List<AgentJson> list = new List<AgentJson>();
+            #region "bind data"
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                AgentJson obj = new AgentJson();
+
+                try
+                {
+
+                    obj.Ask = dr[0].ToString();
+                    obj.TS = dr[1].ToString();
+                    obj.UD = dr[2].ToString();
+                    obj.AgentName = dr[3].ToString();
+                    obj.AgentDetails = dr[4].ToString();
+                    obj.NationalID = dr[5].ToString();
+                    obj.BillingAddress = dr[6].ToString();
+                    obj.ShippinggAddress = dr[7].ToString();
+                    obj.CompanyName = dr[8].ToString();
+                    obj.Website = dr[9].ToString();
+                    obj.Mobile = dr[10].ToString();
+                    obj.Email = dr[11].ToString();
+                    obj.ContactPersonName = dr[12].ToString();
+                    obj.ContactPersonMobile = dr[13].ToString();
+                    obj.Address = dr[14].ToString();
+                    obj.DisplaySequence = dr[15].ToString();
+                    obj.Remark = dr[16].ToString();
+                }
+                catch
+                {
+                    continue;
+                }
+
+                list.Add(obj);
+            }
+            #endregion
+            return list;
+        }
+        #endregion
+
+        #region "getCountryList"
+        public List<CountryJson> getCountryList(AuthorizationCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Country", dic);
+            List<CountryJson> list = new List<CountryJson>();
+            #region "bind data"
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                CountryJson obj = new CountryJson();
+
+                try
+                {
+
+                    obj.Ask = dr[0].ToString();
+                    obj.TS = dr[1].ToString();
+                    obj.UD = dr[2].ToString();
+                    obj.CountryName = dr[3].ToString();
+                    obj.CountryDetails = dr[4].ToString();
+                    obj.Status = dr[5].ToString();
+                    obj.DisplaySequence = dr[6].ToString();
+                    obj.Remark = dr[7].ToString();
+                }
+                catch
+                {
+                    continue;
+                }
+
+                list.Add(obj);
+            }
+            #endregion
+            return list;
+        }
+        #endregion
+
+        #region "getUOMList"
+        public List<UOMJson> getUOMList(AuthorizationCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_UOM", dic);
+            List<UOMJson> list = new List<UOMJson>();
+            #region "bind data"
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                UOMJson obj = new UOMJson();
+
+                try
+                {
+
+                    obj.Ask = dr[0].ToString();
+                    obj.TS = dr[1].ToString();
+                    obj.UD = dr[2].ToString();
+                    obj.Name = dr[3].ToString();
+                    obj.Details = dr[4].ToString();
+                    obj.Status = dr[5].ToString();
+                    obj.DisplaySequence = dr[6].ToString();
+                    obj.Remark = dr[7].ToString();
+                }
+                catch
+                {
+                    continue;
+                }
+
+                list.Add(obj);
+            }
+            #endregion
+            return list;
+        }
+        #endregion
+
+        #region "getTruckTypeList"
+        public List<TruckTypeJson> getTruckTypeList(AuthorizationCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Truck_Type", dic);
+            List<TruckTypeJson> list = new List<TruckTypeJson>();
+            #region "bind data"
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                TruckTypeJson obj = new TruckTypeJson();
+
+                try
+                {
+
+                    obj.Ask = dr[0].ToString();
+                    obj.TS = dr[1].ToString();
+                    obj.UD = dr[2].ToString();
+                    obj.Code = dr[3].ToString();
+                    obj.Description = dr[4].ToString();
+                    obj.TotalGrossW = dr[5].ToString();
+                    obj.TareWeight = dr[6].ToString();
+                    obj.StockWeight = dr[7].ToString();
+                    obj.TotalWeight = dr[8].ToString();
+                    obj.TotalVol = dr[9].ToString();
+                    obj.Status = dr[10].ToString();
+                    obj.DisplaySequence = dr[11].ToString();
+                    obj.Remark = dr[12].ToString();
+                }
+                catch
+                {
+                    continue;
+                }
+
+                list.Add(obj);
+            }
+            #endregion
+            return list;
+        }
+        #endregion
+
+        #endregion
+
+
+        #region"EXPORT WAREHOUSE"
+
         #region "savePRFEWarehouse"
         public List<PREFWarehouseJson> savePRFEWarehouse(PRFEWarehouseCri bookingData)
         {
@@ -842,7 +1028,7 @@ namespace GIIS.ERP.WMS
             curAgentAsk = l_Agent.Ask;
             //Save Header Table (WMS_BOOKING Table)
 
-          
+
             if (bookingData.AgentAsk == "0")
                 isHSave = mMasterBLL.saveObj("WMS_AGENT", l_Agent);
             else
@@ -1142,8 +1328,8 @@ namespace GIIS.ERP.WMS
             selectCri.ProductAsk = bookingData.ProductAsk;
             selectCri.Ask = curBookingAsk;
             selectCri.AgentAsk = curAgentAsk;
-            
-            
+
+
 
             returnlist = getPRFEWarehouse(selectCri);
 
@@ -1240,8 +1426,8 @@ namespace GIIS.ERP.WMS
                         bkjson.NoOfContainer = dr[11].ToString();
                         bkjson.TS = dr[38].ToString();
                         bkjson.UD = dr[39].ToString();
-                        bkjson.DisplaySequence= dr[40].ToString();
-                        bkjson.Remark= dr[41].ToString();
+                        bkjson.DisplaySequence = dr[40].ToString();
+                        bkjson.Remark = dr[41].ToString();
 
                         obj.BookingList.Add(bkjson);
                         bookingAsk = dr[0].ToString();
@@ -1249,7 +1435,7 @@ namespace GIIS.ERP.WMS
                     #endregion
 
                     #region"ShipperList"
-                    if ((!shipperAsk.Equals(dr[35].ToString()))  && (!dr[35].ToString().Equals("")))
+                    if ((!shipperAsk.Equals(dr[35].ToString())) && (!dr[35].ToString().Equals("")))
                     {
                         ShipperJson shipperjson = new ShipperJson();
 
@@ -1284,10 +1470,10 @@ namespace GIIS.ERP.WMS
                         truckjson.TruckTypeAsk = dr[14].ToString();
 
                         truckjson.TruckTS = dr[42].ToString();
-                        truckjson.TruckUD= dr[43].ToString();
-                        truckjson.TruckStatus= dr[44].ToString();
-                        truckjson.TruckDisplaySequence= dr[45].ToString();
-                        truckjson.TruckRemark= dr[46].ToString();
+                        truckjson.TruckUD = dr[43].ToString();
+                        truckjson.TruckStatus = dr[44].ToString();
+                        truckjson.TruckDisplaySequence = dr[45].ToString();
+                        truckjson.TruckRemark = dr[46].ToString();
 
                         obj.TruckList.Add(truckjson);
                         truckAsk = dr[12].ToString();
@@ -1308,11 +1494,11 @@ namespace GIIS.ERP.WMS
                         pojson.POShippingMark = dr[17].ToString();
                         pojson.POReferenceNo = dr[18].ToString();
 
-                        pojson.POTS= dr[47].ToString();
-                        pojson.POUD= dr[48].ToString();
-                        pojson.POStatus= dr[49].ToString();
-                        pojson.PODisplaySequence= dr[50].ToString();
-                        pojson.PORemark= dr[51].ToString();
+                        pojson.POTS = dr[47].ToString();
+                        pojson.POUD = dr[48].ToString();
+                        pojson.POStatus = dr[49].ToString();
+                        pojson.PODisplaySequence = dr[50].ToString();
+                        pojson.PORemark = dr[51].ToString();
 
                         obj.POList.Add(pojson);
                         poAsk = dr[15].ToString();
@@ -1540,180 +1726,6 @@ namespace GIIS.ERP.WMS
 
             #endregion
 
-            return list;
-        }
-        #endregion
-
-        #region "getAgentList"
-        public List<AgentJson> getAgentList(AuthorizationCri criteria)
-        {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("@UserID", criteria.UserID);
-            dic.Add("@Password", criteria.Password);
-            dic.Add("@ProductAsk", criteria.ProductAsk);
-
-            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Agent", dic);
-            List<AgentJson> list = new List<AgentJson>();
-            #region "bind data"
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                AgentJson obj = new AgentJson();
-
-                try
-                {
-
-                    obj.Ask = dr[0].ToString();
-                    obj.TS = dr[1].ToString();
-                    obj.UD = dr[2].ToString();
-                    obj.AgentName = dr[3].ToString();
-                    obj.AgentDetails = dr[4].ToString();
-                    obj.NationalID = dr[5].ToString();
-                    obj.BillingAddress = dr[6].ToString();
-                    obj.ShippinggAddress = dr[7].ToString();
-                    obj.CompanyName = dr[8].ToString();
-                    obj.Website = dr[9].ToString();
-                    obj.Mobile = dr[10].ToString();
-                    obj.Email = dr[11].ToString();
-                    obj.ContactPersonName = dr[12].ToString();
-                    obj.ContactPersonMobile = dr[13].ToString();
-                    obj.Address = dr[14].ToString();
-                    obj.DisplaySequence = dr[15].ToString();
-                    obj.Remark = dr[16].ToString();
-                }
-                catch
-                {
-                    continue;
-                }
-
-                list.Add(obj);
-            }
-            #endregion
-            return list;
-        }
-        #endregion
-
-        #region "getCountryList"
-        public List<CountryJson> getCountryList(AuthorizationCri criteria)
-        {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("@UserID", criteria.UserID);
-            dic.Add("@Password", criteria.Password);
-            dic.Add("@ProductAsk", criteria.ProductAsk);
-
-            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Country", dic);
-            List<CountryJson> list = new List<CountryJson>();
-            #region "bind data"
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                CountryJson obj = new CountryJson();
-
-                try
-                {
-
-                    obj.Ask = dr[0].ToString();
-                    obj.TS = dr[1].ToString();
-                    obj.UD = dr[2].ToString();
-                    obj.CountryName = dr[3].ToString();
-                    obj.CountryDetails = dr[4].ToString();
-                    obj.Status = dr[5].ToString();
-                    obj.DisplaySequence = dr[6].ToString();
-                    obj.Remark = dr[7].ToString();
-                }
-                catch
-                {
-                    continue;
-                }
-
-                list.Add(obj);
-            }
-            #endregion
-            return list;
-        }
-        #endregion
-
-        #region "getUOMList"
-        public List<UOMJson> getUOMList(AuthorizationCri criteria)
-        {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("@UserID", criteria.UserID);
-            dic.Add("@Password", criteria.Password);
-            dic.Add("@ProductAsk", criteria.ProductAsk);
-
-            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_UOM", dic);
-            List<UOMJson> list = new List<UOMJson>();
-            #region "bind data"
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                UOMJson obj = new UOMJson();
-
-                try
-                {
-
-                    obj.Ask = dr[0].ToString();
-                    obj.TS = dr[1].ToString();
-                    obj.UD = dr[2].ToString();
-                    obj.Name = dr[3].ToString();
-                    obj.Details = dr[4].ToString();
-                    obj.Status = dr[5].ToString();
-                    obj.DisplaySequence = dr[6].ToString();
-                    obj.Remark = dr[7].ToString();
-                }
-                catch
-                {
-                    continue;
-                }
-
-                list.Add(obj);
-            }
-            #endregion
-            return list;
-        }
-        #endregion
-
-        #region "getTruckTypeList"
-        public List<TruckTypeJson> getTruckTypeList(AuthorizationCri criteria)
-        {
-            Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("@UserID", criteria.UserID);
-            dic.Add("@Password", criteria.Password);
-            dic.Add("@ProductAsk", criteria.ProductAsk);
-
-            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_Truck_Type", dic);
-            List<TruckTypeJson> list = new List<TruckTypeJson>();
-            #region "bind data"
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                TruckTypeJson obj = new TruckTypeJson();
-
-                try
-                {
-
-                    obj.Ask = dr[0].ToString();
-                    obj.TS = dr[1].ToString();
-                    obj.UD = dr[2].ToString();
-                    obj.Code = dr[3].ToString();
-                    obj.Description = dr[4].ToString();
-                    obj.TotalGrossW = dr[5].ToString();
-                    obj.TareWeight = dr[6].ToString();
-                    obj.StockWeight = dr[7].ToString();
-                    obj.TotalWeight = dr[8].ToString();
-                    obj.TotalVol = dr[9].ToString();
-                    obj.Status = dr[10].ToString();
-                    obj.DisplaySequence = dr[11].ToString();
-                    obj.Remark = dr[12].ToString();
-                }
-                catch
-                {
-                    continue;
-                }
-
-                list.Add(obj);
-            }
-            #endregion
             return list;
         }
         #endregion
@@ -2919,6 +2931,778 @@ namespace GIIS.ERP.WMS
         }
         #endregion
 
+        #endregion
 
+
+        #region"EXPORT DIRECT"
+
+        #region "savePRFEDirect"
+        public List<PREFDirectListJson> savePRFEDirect(PRFEDirectCri criteria)
+        {
+            Message message = new Message();
+
+            string curAgentAsk = "0";
+            string curContainerAsk = "0";
+            string curBookingAsk = "0";
+            string curShipperAsk = "0";
+            string curTruckAsk = "0";
+            string curPOAsk = "0";
+            string curSKUAsk = "0";
+            Boolean isHSave = false;
+
+            #region "Bind Object"
+
+            #region"saveAgent"
+            Agent l_Agent = new Agent();
+            if (criteria.AgentAsk == "0")
+                l_Agent.Ask = mUtility.getStrAsk().ToString();
+            else
+                l_Agent.Ask = criteria.AgentAsk;
+
+            l_Agent.TS = "1";
+            l_Agent.UD = "1";
+            l_Agent.AgentName = criteria.AgentName;
+            l_Agent.AgentDetails = criteria.AgentDetails;
+            l_Agent.NationalID = criteria.AgentNationalID;
+            l_Agent.BillingAddress = criteria.AgentBillingAddress;
+            l_Agent.ShippinggAddress = criteria.AgentShippingAddress;
+            l_Agent.CompanyName = criteria.AgentCompanyName;
+            l_Agent.Website = criteria.AgentWebsite;
+            l_Agent.Mobile = criteria.AgentMobile;
+            l_Agent.Email = criteria.AgentEmail;
+            l_Agent.ContactPersonName = criteria.AgentContactPersonName;
+            l_Agent.ContactPersonMobile = criteria.AgentContactPersonMobile;
+            l_Agent.Address = criteria.AgentAddress;
+            l_Agent.DisplaySequence = criteria.AgentDisplaySequence;
+            l_Agent.Remark = criteria.AgentRemark;
+
+            //currentBookingAsk 
+            curAgentAsk = l_Agent.Ask;
+            //Save Header Table (WMS_BOOKING Table)
+
+
+            if (criteria.AgentAsk == "0")
+                isHSave = mMasterBLL.saveObj("WMS_AGENT", l_Agent);
+            else
+                isHSave = mMasterBLL.updateObj("WMS_AGENT", l_Agent);
+
+            #endregion
+
+            #region"saveContainer"
+            Container l_obj2 = new Container();
+            if (criteria.ContainerAsk == "0")
+                l_obj2.Ask = mUtility.getStrAsk().ToString();
+            else
+                l_obj2.Ask = criteria.ContainerAsk;
+
+            l_obj2.TS = criteria.ContainerTS;
+            l_obj2.UD = criteria.ContainerUD;
+            l_obj2.ContainerNo = criteria.ContainerNo;
+            l_obj2.ContainerDetails = criteria.ContainerDetails;
+            l_obj2.SealNo = criteria.ContainerSealNo;
+            l_obj2.Width = criteria.ContainerWidth;
+            l_obj2.Height = criteria.ContainerHeight;
+            l_obj2.Base = criteria.ContainerBase;
+            l_obj2.ContainerType = criteria.ContainerType;
+            l_obj2.Color = criteria.ContainerColor;
+            l_obj2.TruckTypeAsk = criteria.ContainerTruckTypeAsk;
+            l_obj2.Carrier = criteria.ContainerCarrier;
+            l_obj2.Voy = criteria.ContainerVoy;
+            l_obj2.VesselNo = criteria.ContainerVesselNo;
+            l_obj2.ETA = criteria.ContainerETA;
+            l_obj2.ETD = criteria.ContainerETD;
+            l_obj2.CutOffDate = criteria.ContainerCutOffDate;
+            l_obj2.PaperlessCode = criteria.ContainerPaperlessCode;
+            l_obj2.ContainerPicture = criteria.ContainerVesselNo;
+            l_obj2.CountryAsk = criteria.ContainerCountryAsk;
+            l_obj2.TareWeight = criteria.ContainerTareWeight;
+            l_obj2.GrossWeight = criteria.ContainerGrossWeight;
+            l_obj2.MattWeight = criteria.ContainerMattWeight;
+            l_obj2.TotalWeight = criteria.ContainerTotalWeight;
+            l_obj2.DisplaySequence = criteria.ContainerDisplaySequence;
+            l_obj2.Remark = criteria.ContainerRemark;
+
+            Boolean isContainerSave = false;
+            curContainerAsk = l_obj2.Ask;
+            if (criteria.ContainerAsk == "0")
+                isContainerSave = mMasterBLL.saveObj("WMS_CONTAINER", l_obj2);
+            else
+                isContainerSave = mMasterBLL.updateObj("WMS_CONTAINER", l_obj2);
+
+            #endregion
+
+            #region "Booking Save"
+
+            Booking l_Booking = new Booking();
+            if (criteria.Ask == "0")
+                l_Booking.Ask = mUtility.getStrAsk().ToString();
+            else
+                l_Booking.Ask = criteria.Ask;
+
+            l_Booking.TS = "1";
+            l_Booking.UD = "1";
+            l_Booking.BookingID = criteria.BookingID;
+            l_Booking.AgentAsk = curAgentAsk;
+            l_Booking.Shipper = criteria.Shipper;
+            l_Booking.CountryAsk = criteria.CountryAsk;
+            l_Booking.CargoReceivedDate = criteria.CargoReceivedDate;
+            l_Booking.CustomIssuedDate = criteria.CustomIssuedDate;
+            l_Booking.TransactionDate = criteria.TransactionDate;
+            l_Booking.Signature = criteria.Signature;
+            l_Booking.SignatureDate = criteria.SignatureDate;
+            l_Booking.BookingStatusAsk = criteria.BookingStatusAsk;
+            l_Booking.NoOfTruck = criteria.NoOfTruck;
+            l_Booking.NoOfContainer = criteria.NoOfContainer;
+            l_Booking.DisplaySequence = criteria.DisplaySequence;
+            l_Booking.Remark = criteria.Remark;
+            l_Booking.LogisticTypeAsk = criteria.LogisticTypeAsk;
+
+            //currentBookingAsk 
+            curBookingAsk = l_Booking.Ask;
+            //Save Header Table (WMS_BOOKING Table)
+
+            
+            if (criteria.Ask == "0")
+                isHSave = mMasterBLL.saveObj("WMS_BOOKING", l_Booking);
+            else
+                isHSave = mMasterBLL.updateObj("WMS_BOOKING", l_Booking);
+            #endregion
+
+
+
+            if (isHSave)
+            {
+
+                #region "saveBookingContainerJun"
+                BookingContainerJun bcjun = new BookingContainerJun();
+                bcjun.Ask = mUtility.getStrAsk().ToString();
+                bcjun.TS = "1";
+                bcjun.UD = "1";
+                bcjun.BookingAsk = curBookingAsk;
+                bcjun.ContainerAsk = curContainerAsk;
+                bcjun.Status = "0";
+                bcjun.DisplaySequence = "0";
+                bcjun.Remark = "";
+
+                Boolean isbcJunDelete = mMasterBLL.deleteObj("WMS_BOOKING_CONTAINER_JUN", bcjun, 4);
+                Boolean isbcJunSave = mMasterBLL.saveObj("WMS_BOOKING_CONTAINER_JUN", bcjun);
+                #endregion
+
+
+                if (criteria.ShipperList.Count > 0)
+                {
+
+                    #region "ShipperSave"
+                    List<ShipperCri> l_shipperList = new List<ShipperCri>();
+                    l_shipperList = criteria.ShipperList;
+                    int shipperCount = l_shipperList.Count;
+
+                    for (int a = 0; a < shipperCount; a++)
+                    {
+                        Shipper l_shipper = new Shipper();
+
+                        if (l_shipperList[a].Ask == "0")
+                            l_shipper.Ask = mUtility.getStrAsk().ToString();
+                        else
+                            l_shipper.Ask = l_shipperList[a].Ask;
+
+                        l_shipper.TS = l_shipperList[a].TS;
+                        l_shipper.UD = l_shipperList[a].UD;
+                        l_shipper.ShipperName = l_shipperList[a].ShipperName;
+                        l_shipper.ShipperDetails = l_shipperList[a].ShipperDetails;
+                        l_shipper.Status = l_shipperList[a].Status;
+                        l_shipper.DisplaySequence = l_shipperList[a].DisplaySequence;
+                        l_shipper.Remark = l_shipperList[a].Remark;
+
+                        //currentTruckAsk
+                        curShipperAsk = l_shipper.Ask;
+                        Boolean isShipperSave = false;
+
+                        if (l_shipperList[a].Ask == "0")
+                            isShipperSave = mMasterBLL.saveObj("WMS_SHIPPER", l_shipper);
+                        else
+                            isShipperSave = mMasterBLL.updateObj("WMS_SHIPPERs", l_shipper);
+                        #endregion
+
+                        if (isShipperSave)
+                        {
+                            #region "BookingShipperJunctionSave"
+                            BookingShipperJun bsJun = new BookingShipperJun();
+                            bsJun.Ask = mUtility.getStrAsk().ToString();
+                            bsJun.TS = "1";
+                            bsJun.UD = "1";
+                            bsJun.BookingAsk = curBookingAsk;
+                            bsJun.ShipperAsk = curShipperAsk;
+                            bsJun.Status = "0";
+                            bsJun.DisplaySequence = "0";
+                            bsJun.Remark = "";
+
+                            Boolean isShipperJunDelete = mMasterBLL.deleteObj("WMS_BOOKING_Shipper_JUN", bsJun, 5);
+                            Boolean isShipperJunSave = mMasterBLL.saveObj("WMS_BOOKING_Shipper_JUN", bsJun);
+                            #endregion
+
+                            if (criteria.ShipperList[a].TruckList.Count > 0)
+                            {
+                                #region "TruckSave"
+                                List<TruckCri> l_truckList = new List<TruckCri>();
+                                l_truckList = criteria.ShipperList[a].TruckList;
+                                int truckCount = l_truckList.Count;
+
+                                for (int i = 0; i < truckCount; i++)
+                                {
+                                    Truck l_truck = new Truck();
+
+                                    if (l_truckList[i].Ask == "0")
+                                        l_truck.Ask = mUtility.getStrAsk().ToString();
+                                    else
+                                        l_truck.Ask = l_truckList[i].Ask;
+
+                                    l_truck.TS = l_truckList[i].TS;
+                                    l_truck.UD = l_truckList[i].UD;
+                                    l_truck.TruckID = l_truckList[i].TruckID;
+                                    l_truck.TruckTypeAsk = l_truckList[i].TruckTypeAsk;
+                                    l_truck.Status = l_truckList[i].Status;
+                                    l_truck.DisplaySequence = l_truckList[i].DisplaySequence;
+                                    l_truck.Remark = l_truckList[i].Remark;
+
+                                    //currentTruckAsk
+                                    curTruckAsk = l_truck.Ask;
+                                    Boolean isTruckSave = false;
+
+                                    if (l_truckList[i].Ask == "0")
+                                        isTruckSave = mMasterBLL.saveObj("WMS_TRUCK", l_truck);
+                                    else
+                                        isTruckSave = mMasterBLL.updateObj("WMS_TRUCK", l_truck);
+                                    #endregion
+
+                                    if (isTruckSave)
+                                    {
+                                        #region "BookingTruckJunctionSave"
+                                        BookingTruckJun btJun = new BookingTruckJun();
+                                        btJun.Ask = mUtility.getStrAsk().ToString();
+                                        btJun.TS = "1";
+                                        btJun.UD = "1";
+                                        btJun.BookingAsk = curBookingAsk;
+                                        btJun.TruckAsk = curTruckAsk;
+                                        btJun.Status = "0";
+                                        btJun.DisplaySequence = "0";
+                                        btJun.Remark = "";
+                                        btJun.ShipperAsk = curShipperAsk;
+
+                                        Boolean isTruckJunDelete = mMasterBLL.deleteObj("WMS_BOOKING_TRUCK_JUN", btJun, 5);
+                                        Boolean isTruckJunSave = mMasterBLL.saveObj("WMS_BOOKING_TRUCK_JUN", btJun);
+                                        #endregion
+
+                                        if (criteria.ShipperList[a].TruckList[i].POList.Count > 0)
+                                        {
+
+                                            #region"POSave"
+                                            List<POCri> l_poList = new List<POCri>();
+                                            l_poList = criteria.ShipperList[a].TruckList[i].POList;
+                                            int poCount = l_poList.Count;
+
+                                            for (int j = 0; j < poCount; j++)
+                                            {
+                                                PO l_po = new PO();
+
+                                                if (l_poList[j].Ask == "0")
+                                                    l_po.Ask = mUtility.getStrAsk().ToString();
+                                                else
+                                                    l_po.Ask = l_poList[j].Ask;
+
+                                                l_po.TS = l_poList[j].TS;
+                                                l_po.UD = l_poList[j].UD;
+                                                l_po.PONo = l_poList[j].PONo;
+                                                l_po.ShippingMark = l_poList[j].ShippingMark;
+                                                l_po.ReferenceNo = l_poList[j].ReferenceNo;
+                                                l_po.Status = l_poList[j].Status;
+                                                l_po.DisplaySequence = l_poList[j].DisplaySequence;
+                                                l_po.Remark = l_poList[j].Remark;
+
+                                                //currentTruckAsk
+                                                curPOAsk = l_po.Ask;
+                                                Boolean isPOSave = false;
+                                                if (l_poList[j].Ask == "0")
+                                                    isPOSave = mMasterBLL.saveObj("WMS_PO", l_po);
+                                                else
+                                                    isPOSave = mMasterBLL.updateObj("WMS_PO", l_po);
+
+                                                #endregion
+
+                                                if (isPOSave)
+                                                {
+                                                    #region "TruckPOJUNSave"
+                                                    TruckPOJun tpJun = new TruckPOJun();
+                                                    tpJun.Ask = mUtility.getStrAsk().ToString();
+                                                    tpJun.TS = "1";
+                                                    tpJun.UD = "1";
+                                                    tpJun.TruckAsk = curTruckAsk;
+                                                    tpJun.POAsk = curPOAsk;
+                                                    tpJun.Status = "0";
+                                                    tpJun.DisplaySequence = "0";
+                                                    tpJun.Remark = "";
+                                                    tpJun.BookingAsk = curBookingAsk;
+                                                    tpJun.ShipperAsk = curShipperAsk;
+
+                                                    Boolean isPOJunDelete = mMasterBLL.deleteObj("WMS_TRUCK_PO_JUN", tpJun, 5);
+                                                    Boolean isPOJunSave = mMasterBLL.saveObj("WMS_TRUCK_PO_JUN", tpJun);
+                                                    #endregion
+
+                                                    if (criteria.ShipperList[a].TruckList[i].POList[j].SKUList.Count > 0)
+                                                    {
+
+                                                        #region"SKUSave"
+                                                        List<SKUCri> l_skuList = new List<SKUCri>();
+                                                        l_skuList = criteria.ShipperList[a].TruckList[i].POList[j].SKUList;
+                                                        int skuCount = l_skuList.Count;
+
+                                                        for (int k = 0; k < skuCount; k++)
+                                                        {
+                                                            SKU l_sku = new SKU();
+
+                                                            if (l_skuList[k].Ask == "0")
+                                                                l_sku.Ask = mUtility.getStrAsk().ToString();
+                                                            else
+                                                                l_sku.Ask = l_skuList[k].Ask;
+
+                                                            l_sku.TS = l_skuList[k].TS;
+                                                            l_sku.UD = l_skuList[k].UD;
+                                                            l_sku.SKUName = l_skuList[k].SKUName;
+                                                            l_sku.SKUDetails = l_skuList[k].SKUDetails;
+                                                            l_sku.DimensionWidth = l_skuList[k].DimensionWidth;
+                                                            l_sku.DimensionHeight = l_skuList[k].DimensionHeight;
+                                                            l_sku.DimensionBase = l_skuList[k].DimensionBase;
+                                                            l_sku.SKUWeight = l_skuList[k].SKUWeight;
+                                                            l_sku.PlanQty = l_skuList[k].PlanQty;
+                                                            l_sku.UOMAsk = l_skuList[k].UOMAsk;
+                                                            l_sku.ReceivedQty = l_skuList[k].ReceivedQty;
+                                                            l_sku.Reference = l_skuList[k].Reference;
+                                                            l_sku.TruckID = l_skuList[k].TruckID;
+                                                            l_sku.TruckType = l_skuList[k].TruckType;
+                                                            l_sku.GoodQty = l_skuList[k].GoodQty;
+                                                            l_sku.DamageQty = l_skuList[k].DamageQty;
+                                                            l_sku.ShortLandQty = l_skuList[k].ShortLandQty;
+                                                            l_sku.OverlandQty = l_skuList[k].OverlandQty;
+                                                            l_sku.Goodphoto = l_skuList[k].Goodphoto;
+                                                            l_sku.Damagephoto = l_skuList[k].Damagephoto;
+                                                            l_sku.ShortLandphoto = l_skuList[k].ShortLandphoto;
+                                                            l_sku.Overlandphoto = l_skuList[k].Overlandphoto;
+                                                            l_sku.Status = l_skuList[k].Status;
+                                                            l_sku.DisplaySequence = l_skuList[k].DisplaySequence;
+                                                            l_sku.Remark = l_skuList[k].Remark;
+
+                                                            //currentSKUAsk
+                                                            curSKUAsk = l_sku.Ask;
+                                                            Boolean isSKUSave = false;
+                                                            if (l_skuList[k].Ask == "0")
+                                                                isSKUSave = mMasterBLL.saveObj("WMS_SKU", l_sku);
+                                                            else
+                                                                isSKUSave = mMasterBLL.updateObj("WMS_SKU", l_sku);
+
+                                                            #endregion
+
+                                                            if (isSKUSave)
+                                                            {
+                                                                #region "POSKUJUNSave"
+                                                                POSKUJun psJun = new POSKUJun();
+                                                                psJun.Ask = mUtility.getStrAsk().ToString();
+                                                                psJun.TS = "1";
+                                                                psJun.UD = "1";
+                                                                psJun.SKUAsk = curSKUAsk;
+                                                                psJun.POAsk = curPOAsk;
+                                                                psJun.Status = "0";
+                                                                psJun.DisplaySequence = "0";
+                                                                psJun.Remark = "";
+                                                                psJun.BookingAsk = curBookingAsk;
+                                                                psJun.TruckAsk = curTruckAsk;
+
+                                                                Boolean isSKUJunDelete = mMasterBLL.deleteObj("WMS_PO_SKU_JUN", psJun, 5);
+                                                                Boolean isSKUJunSave = mMasterBLL.saveObj("WMS_PO_SKU_JUN", psJun);
+                                                                #endregion
+
+                                                            }
+
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #endregion
+
+            #region"selectList"
+            List<PREFDirectListJson> returnlist = new List<PREFDirectListJson>();
+            PRFEDirectCri selectCri = new PRFEDirectCri();
+            selectCri.UserID = criteria.UserID;
+            selectCri.Password = criteria.Password;
+            selectCri.ProductAsk = criteria.ProductAsk;
+            selectCri.Ask = curBookingAsk;
+            selectCri.AgentAsk = curAgentAsk;
+            selectCri.ContainerAsk = curContainerAsk;
+
+            returnlist = getPRFEDirectList(selectCri);
+
+            #endregion
+            return returnlist;
+        }
+        #endregion
+
+        #region "getPRFEDirectList"
+        public List<PREFDirectListJson> getPRFEDirectList(PRFEDirectCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+
+            dic.Add("@BookingAsk", criteria.Ask);
+            dic.Add("@BookingID", criteria.BookingID);
+            dic.Add("@AgentAsk", criteria.AgentAsk);
+            dic.Add("@Shipper", criteria.Shipper);
+            dic.Add("@CountryAsk", criteria.CountryAsk);
+            dic.Add("@CargoReceivedDate", criteria.CargoReceivedDate);
+            dic.Add("@CustomIssuedDate", criteria.CustomIssuedDate);
+            dic.Add("@TransactionDate", criteria.TransactionDate);
+            dic.Add("@Signature", criteria.Signature);
+            dic.Add("@SignatureDate", criteria.SignatureDate);
+            dic.Add("@BookingStatusAsk", criteria.BookingStatusAsk);
+            dic.Add("@NoOfTruck", criteria.NoOfTruck);
+            dic.Add("@NoOfContainer", criteria.NoOfContainer);
+            dic.Add("@LogisticTypeAsk", criteria.LogisticTypeAsk);
+
+            dic.Add("@AgentName", criteria.AgentName);
+            dic.Add("@AgentDetails", criteria.AgentDetails);
+
+            dic.Add("@ContainerAsk", criteria.ContainerAsk);
+            dic.Add("@ContainerNo", criteria.ContainerNo);
+            dic.Add("@ContainerDetails", criteria.ContainerDetails);
+
+            dic.Add("@ShipperAsk", criteria.ShipperAsk);
+            dic.Add("@ShipperName", criteria.ShipperName);
+            dic.Add("@ShipperDetails", criteria.ShipperDetails);           
+
+            dic.Add("@TruckAsk", criteria.TruckAsk);
+            dic.Add("@TruckID", criteria.TruckID);
+            dic.Add("@TruckTypeAsk", criteria.TruckTypeAsk);
+
+            dic.Add("@POAsk", criteria.POAsk);
+            dic.Add("@PONo", criteria.PONo);
+            dic.Add("@ShippingMark", criteria.POShippingMark);
+            dic.Add("@ReferenceNo", criteria.POReferenceNo);
+
+            dic.Add("@SKUAsk", criteria.SKUAsk);
+            dic.Add("@SKUName", criteria.SKUName);
+            dic.Add("@SKUDetails", criteria.SKUDetails);
+            dic.Add("@DimensionWidth", criteria.SKUDimensionWidth);
+            dic.Add("@DimensionHeight", criteria.SKUDimensionHeight);
+            dic.Add("@DimensionBase", criteria.SKUDimensionBase);
+            dic.Add("@SKUWeight", criteria.SKUWeight);
+            dic.Add("@PlanQty", criteria.SKUPlanQty);
+            dic.Add("@UOMAsk", criteria.SKUUOMAsk);
+            dic.Add("@ReceivedQty", criteria.SKUReceivedQty);
+            dic.Add("@Reference", criteria.SKUReference);
+            dic.Add("@TruckType", criteria.SKUTruckType);
+            dic.Add("@GoodQty", criteria.SKUGoodQty);
+            dic.Add("@DamageQty", criteria.SKUDamageQty);
+            dic.Add("@ShortLandQty", criteria.SKUShortLandQty);
+            dic.Add("@OverlandQty", criteria.SKUOverlandQty);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_PRFEDirectList", dic);
+            List<PREFDirectListJson> list = new List<PREFDirectListJson>();
+
+            #region "bind data"
+            String bookingAsk = "0";
+
+            PREFDirectListJson obj = new PREFDirectListJson();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                try
+                {
+                    int ind = dt.Rows.IndexOf(dr);
+
+                    if ((!bookingAsk.Equals(dr[0].ToString())) && (!dr[0].ToString().Equals("")))
+                    {
+                        BookingJson bkjson = new BookingJson();
+                        bkjson.Ask = dr[0].ToString();
+                        bkjson.TS = dr[1].ToString();
+                        bkjson.UD = dr[2].ToString();
+                        bkjson.BookingID = dr[3].ToString();
+                        bkjson.AgentAsk = dr[4].ToString();
+                        bkjson.Shipper = dr[5].ToString();
+                        bkjson.CountryAsk = dr[6].ToString();
+                        bkjson.CargoReceivedDate = dr[7].ToString();
+                        bkjson.CustomIssuedDate = dr[8].ToString();
+                        bkjson.TransactionDate = dr[9].ToString();
+                        bkjson.Signature = dr[10].ToString();
+                        bkjson.SignatureDate = dr[11].ToString();
+                        bkjson.NoOfTruck = dr[12].ToString();
+                        bkjson.NoOfContainer = dr[13].ToString();
+                        bkjson.LogisticTypeAsk = dr[14].ToString();
+                        bkjson.DisplaySequence = dr[15].ToString();
+                        bkjson.Remark = dr[16].ToString();
+
+                        obj.BookingList.Add(bkjson);
+                        bookingAsk = dr[0].ToString();
+                    }
+
+                    PREFDirectDetailJson dtljson = new PREFDirectDetailJson();
+                    dtljson.BookingAsk = dr[0].ToString();
+                    dtljson.TS = dr[1].ToString();
+                    dtljson.UD = dr[2].ToString();
+                    dtljson.BookingID = dr[3].ToString();
+                    dtljson.AgentAsk = dr[4].ToString();
+                    dtljson.Shipper = dr[5].ToString();
+                    dtljson.CountryAsk = dr[6].ToString();
+                    dtljson.CargoReceivedDate = dr[7].ToString();
+                    dtljson.CustomIssuedDate = dr[8].ToString();
+                    dtljson.TransactionDate = dr[9].ToString();
+                    dtljson.Signature = dr[10].ToString();
+                    dtljson.SignatureDate = dr[11].ToString();
+                    dtljson.NoOfTruck = dr[12].ToString();
+                    dtljson.NoOfContainer = dr[13].ToString();
+                    dtljson.LogisticTypeAsk = dr[14].ToString();
+                    dtljson.DisplaySequence = dr[15].ToString();
+                    dtljson.Remark = dr[16].ToString();
+
+                    dtljson.AgentTS = dr[17].ToString();
+                    dtljson.AgentUD = dr[18].ToString();
+                    dtljson.AgentName = dr[19].ToString();
+                    dtljson.AgentDetails = dr[20].ToString();
+                    dtljson.AgentNationalID = dr[21].ToString();                    
+                    dtljson.AgentBillingAddress = dr[22].ToString();
+                    dtljson.AgentShippingAddress = dr[23].ToString();
+                    dtljson.AgentCompanyName = dr[24].ToString();
+                    dtljson.AgentWebsite = dr[25].ToString();
+                    dtljson.AgentMobile = dr[26].ToString();
+                    dtljson.AgentEmail = dr[27].ToString();
+                    dtljson.AgentContactPersonName = dr[28].ToString();
+                    dtljson.AgentContactPersonMobile = dr[29].ToString();
+                    dtljson.AgentAddress = dr[30].ToString();
+                    dtljson.AgentDisplaySequence = dr[31].ToString();
+                    dtljson.AgentRemark = dr[32].ToString();
+
+                    dtljson.ContainerAsk = dr[33].ToString();
+                    dtljson.ContainerTS = dr[34].ToString();
+                    dtljson.ContainerUD = dr[35].ToString();
+                    dtljson.ContainerNo = dr[36].ToString();
+                    dtljson.ContainerDetails = dr[37].ToString();
+                    dtljson.ContainerSealNo = dr[38].ToString();
+                    dtljson.ContainerWidth = dr[39].ToString();
+                    dtljson.ContainerHeight = dr[40].ToString();
+                    dtljson.ContainerBase = dr[41].ToString();
+                    dtljson.ContainerType = dr[42].ToString();
+                    dtljson.ContainerColor = dr[43].ToString();
+                    dtljson.ContainerTruckTypeAsk = dr[44].ToString();
+                    dtljson.ContainerCarrier = dr[45].ToString();
+                    dtljson.ContainerVoy = dr[46].ToString();
+                    dtljson.ContainerVesselNo = dr[47].ToString();
+                    dtljson.ContainerETA = dr[48].ToString();
+                    dtljson.ContainerETD = dr[49].ToString();
+                    dtljson.ContainerCutOffDate = dr[50].ToString();
+                    dtljson.ContainerPaperlessCode = dr[51].ToString();
+                    dtljson.ContainerPicture = dr[52].ToString();
+                    dtljson.ContainerCountryAsk = dr[53].ToString();
+                    dtljson.ContainerTareWeight = dr[54].ToString();
+                    dtljson.ContainerGrossWeight = dr[55].ToString();
+                    dtljson.ContainerMattWeight = dr[56].ToString();
+                    dtljson.ContainerTotalWeight = dr[57].ToString();
+                    dtljson.ContainerStatus = dr[58].ToString();
+                    dtljson.ContainerDisplaySequence = dr[59].ToString();
+                    dtljson.ContainerRemark = dr[60].ToString();
+
+                    dtljson.ShipperAsk = dr[61].ToString();
+                    dtljson.ShipperTS = dr[62].ToString();
+                    dtljson.ShipperUD = dr[63].ToString();
+                    dtljson.ShipperName = dr[64].ToString();
+                    dtljson.ShipperDetails = dr[65].ToString();
+                    dtljson.ShipperStatus = dr[66].ToString();
+                    dtljson.ShipperDisplaySequence = dr[67].ToString();
+                    dtljson.ShipperRemark = dr[68].ToString();
+
+                    dtljson.TruckAsk = dr[69].ToString();
+                    dtljson.TruckTS = dr[70].ToString();
+                    dtljson.TruckUD = dr[71].ToString();
+                    dtljson.TruckID = dr[72].ToString();
+                    dtljson.TruckTypeAsk = dr[73].ToString();                    
+                    dtljson.TruckStatus = dr[74].ToString();
+                    dtljson.TruckDisplaySequence = dr[75].ToString();
+                    dtljson.TruckRemark = dr[76].ToString();
+
+
+                    dtljson.POAsk = dr[77].ToString();
+                    dtljson.POTS = dr[78].ToString();
+                    dtljson.POUD = dr[79].ToString();
+                    dtljson.PONo = dr[80].ToString();
+                    dtljson.POShippingMark = dr[81].ToString();
+                    dtljson.POReferenceNo = dr[82].ToString();
+                    dtljson.POStatus = dr[83].ToString();
+                    dtljson.PODisplaySequence = dr[84].ToString();
+                    dtljson.PORemark = dr[85].ToString();
+
+                    dtljson.SKUAsk = dr[86].ToString();
+                    dtljson.SKUTS = dr[87].ToString();
+                    dtljson.SKUUD = dr[88].ToString();
+                    dtljson.SKUName = dr[89].ToString();
+                    dtljson.SKUDetails = dr[90].ToString();
+                    dtljson.SKUDimensionWidth = dr[91].ToString();
+                    dtljson.SKUDimensionHeight = dr[92].ToString();
+                    dtljson.SKUDimensionBase = dr[93].ToString();
+                    dtljson.SKUWeight = dr[94].ToString();
+                    dtljson.SKUPlanQty = dr[95].ToString();
+                    dtljson.SKUUOMAsk = dr[96].ToString();
+                    dtljson.SKUReceivedQty = dr[97].ToString();
+                    dtljson.SKUReference = dr[98].ToString();
+                    dtljson.SKUTruckType = dr[99].ToString();
+                    dtljson.SKUGoodQty = dr[100].ToString();
+                    dtljson.SKUDamageQty = dr[101].ToString();
+                    dtljson.SKUShortLandQty = dr[102].ToString();
+                    dtljson.SKUOverlandQty = dr[103].ToString();
+                    dtljson.SKUStatus = dr[104].ToString();
+                    dtljson.SKUDisplaySequence = dr[105].ToString();
+                    dtljson.SKURemark = dr[106].ToString();
+                    
+                    obj.DetailList.Add(dtljson);
+
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            list.Add(obj);
+
+            #endregion
+
+            return list;
+        }
+        #endregion
+
+        #region "saveCheckerforExport(Direct)"
+        public List<CheckerDirectJson> saveCheckerDirect(CheckerDirectCri criteria)
+        {
+            Message message = new Message();
+            SKUChecker l_sku = new SKUChecker();
+            CheckerDirectJson l_skuChecker = new CheckerDirectJson();
+            List<CheckerDirectJson> list = new List<CheckerDirectJson>();
+           
+            string curSKUAsk = "0";
+
+            #region "Bind Object"
+
+            #region "saveSKU"
+            if (criteria.Ask == "0")
+                l_sku.Ask = mUtility.getStrAsk().ToString();
+            else
+                l_sku.Ask = criteria.Ask;
+
+            l_sku.TS = criteria.TS;
+            l_sku.UD = criteria.UD;
+            l_sku.BookingAsk = criteria.BookingAsk;
+            l_sku.AgentAsk = criteria.AgentAsk;
+            l_sku.ShipperAsk = criteria.ShipperAsk;
+            l_sku.ContainerAsk = criteria.ContainerAsk;
+            l_sku.SKUAsk = criteria.SKUAsk;        
+            l_sku.DimensionWidth = criteria.DimensionWidth;
+            l_sku.DimensionHeight = criteria.DimensionHeight;
+            l_sku.DimensionBase = criteria.DimensionBase;
+            l_sku.SKUWeight = criteria.SKUWeight;        
+            l_sku.ReceivedQty = criteria.ReceivedQty;
+            l_sku.UOMAsk = criteria.UOMAsk;          
+            l_sku.Status = criteria.Status;
+            l_sku.DisplaySequence = criteria.DisplaySequence;
+            l_sku.Remark = criteria.Remark;
+
+
+            Boolean isSave = false;
+            curSKUAsk = l_sku.Ask;
+            if (criteria.Ask == "0")
+                isSave = mMasterBLL.saveObj("WMS_SKU_CHECKER", l_sku);
+            else
+                isSave = mMasterBLL.updateObj("WMS_SKU", l_sku);
+
+            #endregion      
+
+
+            #endregion
+
+            #region "listArea"
+            CheckerDirectCri selectcriteria = new CheckerDirectCri();
+            selectcriteria.UserID = criteria.UserID;
+            selectcriteria.Password = criteria.Password;
+            selectcriteria.ProductAsk = criteria.ProductAsk;
+            selectcriteria.Ask = curSKUAsk;
+
+           list = getCheckerDirect(selectcriteria);
+
+            #endregion
+
+            return list;
+        }
+        #endregion
+
+        #region "getCheckerForExport(Direct)"
+        public List<CheckerDirectJson> getCheckerDirect(CheckerDirectCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+            dic.Add("@SKUCheckerAsk", criteria.Ask);
+
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_CheckerDirectList", dic);
+
+            #region "bind data"
+
+            List<CheckerDirectJson> list = new List<CheckerDirectJson>();
+
+            CheckerDirectJson obj = new CheckerDirectJson();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                try
+                {
+                    obj.Ask = dr[0].ToString();
+                    obj.TS = dr[1].ToString();
+                    obj.UD = dr[2].ToString();
+                    obj.BookingAsk = dr[3].ToString();
+                    obj.AgentAsk = dr[4].ToString();
+                    obj.ShipperAsk = dr[5].ToString();
+                    obj.ContainerAsk = dr[6].ToString();
+                    obj.SKUAsk = dr[7].ToString();                  
+                    obj.DimensionWidth = dr[8].ToString();
+                    obj.DimensionHeight = dr[9].ToString();
+                    obj.DimensionBase = dr[10].ToString();
+                    obj.SKUWeight = dr[11].ToString();
+                    obj.ReceivedQty = dr[12].ToString();
+                    obj.UOMAsk = dr[13].ToString();
+                    obj.Status = dr[14].ToString();
+                    obj.DisplaySequence = dr[15].ToString();
+                    obj.Remark = dr[16].ToString();
+                    
+                }
+                catch
+                {
+                    continue;
+                }
+                list.Add(obj);
+            }
+            
+            #endregion
+
+            return list;
+        }
+        #endregion
+
+        #endregion
     }
 }
