@@ -774,7 +774,7 @@ namespace GIIS.ERP.WMS
                 dic.Add("@IPAddress", login.IPAdress);
 
                 bool isSuccess = mMasterBLL.executeProcedure("CS_SP_WMS_TestLogin", dic);
-
+                //tts
                 if (isSuccess)
                 {
                     msgObj.Code="1";
