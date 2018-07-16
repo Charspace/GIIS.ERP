@@ -138,11 +138,132 @@ namespace GIIS.ERP.WMS
 
         [OperationContract]
         [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+           UriTemplate = "getCountryList")]
+        List<CountryJson> getCountryList(AuthorizationCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+           UriTemplate = "getUOMList")]
+        List<UOMJson> getUOMList(AuthorizationCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
          RequestFormat = WebMessageFormat.Json,
          ResponseFormat = WebMessageFormat.Json,
          BodyStyle = WebMessageBodyStyle.Bare,
-         UriTemplate = "getCountryList")]
-        List<CountryJson> getCountryList(AuthorizationCri criteria);
+         UriTemplate = "getTruckTypeList")]
+        List<TruckTypeJson> getTruckTypeList(AuthorizationCri criteria);
 
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+         RequestFormat = WebMessageFormat.Json,
+         ResponseFormat = WebMessageFormat.Json,
+         BodyStyle = WebMessageBodyStyle.Bare,
+         UriTemplate = "saveTallyWarehouse")]
+        List<TallyJson> saveTallyWarehouse(TallyCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+       RequestFormat = WebMessageFormat.Json,
+       ResponseFormat = WebMessageFormat.Json,
+       BodyStyle = WebMessageBodyStyle.Bare,
+       UriTemplate = "getTallyWarehouseList")]
+        List<TallyWarehouseJson> getTallyWarehouseList(TallyWarehouseCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare,
+        UriTemplate = "saveCheckerWarehouse")]
+        List<SKUJson> saveCheckerWarehouse(CheckerWarehouseCri criteria);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare,
+        UriTemplate = "saveSKUBarcode")]
+        List<SKUBarcodeJson> saveSKUBarcode(SKUBarcodeCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+       RequestFormat = WebMessageFormat.Json,
+       ResponseFormat = WebMessageFormat.Json,
+       BodyStyle = WebMessageBodyStyle.Bare,
+       UriTemplate = "saveAllocation")]
+        List<SKUBarcodeLocationJunJson> saveAllocation(SKUBarcodeLocationJunCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+       RequestFormat = WebMessageFormat.Json,
+       ResponseFormat = WebMessageFormat.Json,
+       BodyStyle = WebMessageBodyStyle.Bare,
+       UriTemplate = "getAllocation")]
+        List<SKUBarcodeLocationJunJson> getAllocation(SKUBarcodeLocationJunCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+         RequestFormat = WebMessageFormat.Json,
+         ResponseFormat = WebMessageFormat.Json,
+         BodyStyle = WebMessageBodyStyle.Bare,
+         UriTemplate = "saveCreatePicklist")]
+        List<CreatePicklistJson> saveCreatePicklist(CreatePicklistCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare,
+        UriTemplate = "getSelectCreatePickList")]
+        List<CreatePicklistListJson> getSelectCreatePickList(CreatePicklistCri criteria);
+       
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+       RequestFormat = WebMessageFormat.Json,
+       ResponseFormat = WebMessageFormat.Json,
+       BodyStyle = WebMessageBodyStyle.Bare,
+       UriTemplate = "saveDeliverlist")]
+        Message saveDeliverlist(DeliverlistCri criteria);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+          RequestFormat = WebMessageFormat.Json,
+          ResponseFormat = WebMessageFormat.Json,
+          BodyStyle = WebMessageBodyStyle.Bare,
+           UriTemplate = "savePRFEDirect")]
+        List<PREFDirectListJson> savePRFEDirect(PRFEDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "getPRFEDirectList")]
+        List<PREFDirectListJson> getPRFEDirectList(PRFEDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        BodyStyle = WebMessageBodyStyle.Bare,
+         UriTemplate = "saveCheckerDirect")]
+        List<CheckerDirectJson> saveCheckerDirect(CheckerDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "getCheckerDirect")]
+        List<CheckerDirectJson> getCheckerDirect(CheckerDirectCri criteria);
     }
 }

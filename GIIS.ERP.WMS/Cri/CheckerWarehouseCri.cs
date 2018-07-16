@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class SKUCri
+    public class CheckerWarehouseCri
     {
-        public SKUCri()
+        public CheckerWarehouseCri()
         {
             setDefaultValue();
         }
@@ -17,6 +17,12 @@ namespace GIIS.ERP.WMS
         private string mUserID;
         private string mPassword;
         private string mProductAsk;
+
+        private string mBookingAsk;
+        private string mAgentAsk;
+        private string mShipperAsk;
+        private string mContainerAsk;
+
         private string mAsk;
         private string mTS;
         private string mUD;
@@ -65,7 +71,32 @@ namespace GIIS.ERP.WMS
             get { return mProductAsk; }
             set { mProductAsk = value; }
         }
-   
+        [DataMember]
+        public string BookingAsk
+        {
+            get { return mBookingAsk; }
+            set { mBookingAsk = value; }
+        }
+        [DataMember]
+        public string AgentAsk
+        {
+            get { return mAgentAsk; }
+            set { mAgentAsk = value; }
+        }
+        [DataMember]
+        public string ShipperAsk
+        {
+            get { return mShipperAsk; }
+            set { mShipperAsk = value; }
+        }
+        [DataMember]
+        public string ContainerAsk
+        {
+            get { return mContainerAsk; }
+            set { mContainerAsk = value; }
+        }
+
+
         [DataMember]
         public string Ask
         {
@@ -230,6 +261,10 @@ namespace GIIS.ERP.WMS
             mUserID = "";
             mPassword = "";
             mProductAsk = "0";
+            mBookingAsk = "0";
+            mAgentAsk = "0";
+            mShipperAsk = "0";
+            mContainerAsk = "0";
             mAsk = "0";
             mTS = "0";
             mUD = "0";

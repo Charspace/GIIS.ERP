@@ -1,45 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class SKUCri
+    public class CheckerDirectCri
     {
-        public SKUCri()
+        public CheckerDirectCri()
         {
             setDefaultValue();
         }
         #region"Private Property"
-
         private string mUserID;
         private string mPassword;
         private string mProductAsk;
+
         private string mAsk;
         private string mTS;
         private string mUD;
-        private string mSKUName;
-        private string mSKUDetails;
+        private string mBookingAsk;
+        private string mAgentAsk;
+        private string mShipperAsk;
+        private string mContainerAsk;
+        private string mSKUAsk;
         private string mDimensionWidth;
         private string mDimensionHeight;
         private string mDimensionBase;
         private string mSKUWeight;
-        private string mPlanQty;
-        private string mUOMAsk;
         private string mReceivedQty;
-        private string mReference;
-        private string mTruckID;
-        private string mTruckType;
-        private string mGoodQty;
-        private string mDamageQty;
-        private string mShortLandQty;
-        private string mOverlandQty;
-        private string mGoodphoto;
-        private string mDamagephoto;
-        private string mShortLandphoto;
-        private string mOverlandphoto;
+        private string mUOMAsk;
         private string mStatus;
         private string mDisplaySequence;
         private string mRemark;
@@ -52,20 +43,22 @@ namespace GIIS.ERP.WMS
         {
             get { return mUserID; }
             set { mUserID = value; }
+
         }
         [DataMember]
         public string Password
         {
             get { return mPassword; }
             set { mPassword = value; }
+
         }
         [DataMember]
-            public string ProductAsk
+        public String ProductAsk
         {
             get { return mProductAsk; }
             set { mProductAsk = value; }
+
         }
-   
         [DataMember]
         public string Ask
         {
@@ -85,16 +78,34 @@ namespace GIIS.ERP.WMS
             set { mUD = value; }
         }
         [DataMember]
-        public string SKUName
+        public string BookingAsk
         {
-            get { return mSKUName; }
-            set { mSKUName = value; }
+            get { return mBookingAsk; }
+            set { mBookingAsk = value; }
         }
         [DataMember]
-        public string SKUDetails
+        public string AgentAsk
         {
-            get { return mSKUDetails; }
-            set { mSKUDetails = value; }
+            get { return mAgentAsk; }
+            set { mAgentAsk = value; }
+        }
+        [DataMember]
+        public string ShipperAsk
+        {
+            get { return mShipperAsk; }
+            set { mShipperAsk = value; }
+        }
+        [DataMember]
+        public string ContainerAsk
+        {
+            get { return mContainerAsk; }
+            set { mContainerAsk = value; }
+        }
+        [DataMember]
+        public string SKUAsk
+        {
+            get { return mSKUAsk; }
+            set { mSKUAsk = value; }
         }
         [DataMember]
         public string DimensionWidth
@@ -121,10 +132,10 @@ namespace GIIS.ERP.WMS
             set { mSKUWeight = value; }
         }
         [DataMember]
-        public string PlanQty
+        public string ReceivedQty
         {
-            get { return mPlanQty; }
-            set { mPlanQty = value; }
+            get { return mReceivedQty; }
+            set { mReceivedQty = value; }
         }
         [DataMember]
         public string UOMAsk
@@ -133,78 +144,8 @@ namespace GIIS.ERP.WMS
             set { mUOMAsk = value; }
         }
         [DataMember]
-        public string ReceivedQty
-        {
-            get { return mReceivedQty; }
-            set { mReceivedQty = value; }
-        }
-        [DataMember]
-        public string Reference
-        {
-            get { return mReference; }
-            set { mReference = value; }
-        }
-        [DataMember]
-        public string TruckID
-        {
-            get { return mTruckID; }
-            set { mTruckID = value; }
-        }
-        [DataMember]
-        public string TruckType
-        {
-            get { return mTruckType; }
-            set { mTruckType = value; }
-        }
-        [DataMember]
-        public string GoodQty
-        {
-            get { return mGoodQty; }
-            set { mGoodQty = value; }
-        }
-        [DataMember]
-        public string DamageQty
-        {
-            get { return mDamageQty; }
-            set { mDamageQty = value; }
-        }
-        [DataMember]
-        public string ShortLandQty
-        {
-            get { return mShortLandQty; }
-            set { mShortLandQty = value; }
-        }
-        [DataMember]
-        public string OverlandQty
-        {
-            get { return mOverlandQty; }
-            set { mOverlandQty = value; }
-        }
-        [DataMember]
-        public string Goodphoto
-        {
-            get { return mGoodphoto; }
-            set { mGoodphoto = value; }
-        }
-        [DataMember]
-        public string Damagephoto
-        {
-            get { return mDamagephoto; }
-            set { mDamagephoto = value; }
-        }
-        [DataMember]
-        public string ShortLandphoto
-        {
-            get { return mShortLandphoto; }
-            set { mShortLandphoto = value; }
-        }
-        [DataMember]
-        public string Overlandphoto
-        {
-            get { return mOverlandphoto; }
-            set { mOverlandphoto = value; }
-        }
-        [DataMember]
+
+
         public string Status
         {
             get { return mStatus; }
@@ -223,6 +164,7 @@ namespace GIIS.ERP.WMS
             set { mRemark = value; }
         }
 
+
         #endregion
         #region"Default Property"
         public void setDefaultValue()
@@ -233,30 +175,21 @@ namespace GIIS.ERP.WMS
             mAsk = "0";
             mTS = "0";
             mUD = "0";
-            mSKUName = "";
-            mSKUDetails = "";
+            mSKUAsk = "0";
+            mBookingAsk = "0";
+            mAgentAsk = "0";
+            mShipperAsk = "0";
+            mContainerAsk = "0";
             mDimensionWidth = "0";
             mDimensionHeight = "0";
             mDimensionBase = "0";
             mSKUWeight = "0";
-            mPlanQty = "0";
+            mReceivedQty = "0";
             mUOMAsk = "0";
-            mReceivedQty = "";
-            mReference = "";
-            mTruckID = "";
-            mTruckType = "";
-            mGoodQty = "";
-            mDamageQty = "";
-            mShortLandQty = "";
-            mOverlandQty = "";
-            mGoodphoto = "";
-            mDamagephoto = "";
-            mShortLandphoto = "";
-            mOverlandphoto = "";
             mStatus = "0";
             mDisplaySequence = "0";
             mRemark = "";
-           
+
         }
         #endregion
     }

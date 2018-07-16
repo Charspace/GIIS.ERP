@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class TallyCri
+    public class TallyJson
     {
-        public TallyCri()
+        public TallyJson()
         {
             setDefaultValue();
         }
 
         #region "private member"
-        private string mUserID;
-        private string mPassword;
-        private String mProductAsk;
+        
         private string mAsk;
         private string mTS;
         private string mUD;
@@ -26,7 +24,7 @@ namespace GIIS.ERP.WMS
         private string mTruckTypeAsk;
         private string mSKUID;
         private string mSKUDetails;
-        private string mDimensionWeight;
+        private string mDimensionWidth;
         private string mDimensionHeight;
         private string mDimensionBase;
         private string mReceivedQty;
@@ -36,33 +34,16 @@ namespace GIIS.ERP.WMS
         private string mTransactionDate;
         private string mSignature;
         private string mSignatureDate;
-        private string mBookingAsk;
         private string mStatus;
         private string mDisplaySequence;
         private string mRemark;
+        private string mBookingAsk;
         private string mAgentAsk;
         private string mShipperAsk;
 
-
         #endregion
         #region "public member"
-        public string UserID
-        {
-            get { return mUserID; }
-            set { mUserID = value; }
-        }
-        [DataMember]
-        public string Password
-        {
-            get { return mPassword; }
-            set { mPassword = value; }
-        }
-        [DataMember]
-        public string ProductAsk
-        {
-            get { return mProductAsk; }
-            set { mProductAsk = value; }
-        }
+
         [DataMember]
         public string Ask
         {
@@ -126,10 +107,10 @@ namespace GIIS.ERP.WMS
 
         }
         [DataMember]
-        public string DimensionWeight
+        public string DimensionWidth
         {
-            get { return mDimensionWeight; }
-            set { mDimensionWeight = value; }
+            get { return mDimensionWidth; }
+            set { mDimensionWidth = value; }
 
         }
         [DataMember]
@@ -195,6 +176,7 @@ namespace GIIS.ERP.WMS
             set { mSignatureDate = value; }
 
         }
+
         [DataMember]
         public string Status
         {
@@ -237,13 +219,12 @@ namespace GIIS.ERP.WMS
             set { mShipperAsk = value; }
 
         }
+
         #endregion
         #region"Default Property"
         public void setDefaultValue()
         {
-            mUserID = "";
-            mPassword = "";
-            mProductAsk = "0";
+            
             mAsk = "0";
             mTS = "0";
             mUD = "0";
@@ -253,7 +234,7 @@ namespace GIIS.ERP.WMS
             mTruckTypeAsk = "0";
             mSKUID = "";
             mSKUDetails = "";
-            mDimensionWeight = "0";
+            mDimensionWidth = "0";
             mDimensionHeight = "0";
             mDimensionBase = "0";
             mReceivedQty = "0";
@@ -266,9 +247,10 @@ namespace GIIS.ERP.WMS
             mStatus = "0";
             mDisplaySequence = "0";
             mRemark = "";
-            mBookingAsk = "0";
+            mBookingAsk = "0";           
             mAgentAsk = "0";
             mShipperAsk = "0";
+
         }
         #endregion
     }

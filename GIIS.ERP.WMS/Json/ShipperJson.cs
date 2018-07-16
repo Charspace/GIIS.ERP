@@ -15,6 +15,8 @@ namespace GIIS.ERP.WMS
         #region"Private Property"
 
         private string mShipperAsk;
+        private string mShipperTS;
+        private string mShipperUD;
         private string mShipperName;
         private string mShipperDetails;
         private string mShipperStatus;
@@ -32,8 +34,17 @@ namespace GIIS.ERP.WMS
             get { return mShipperAsk; }
             set { mShipperAsk = value; }
         }
-       
-              
+        public string ShipperTS
+        {
+            get { return mShipperTS; }
+            set { mShipperTS = value; }
+        }
+        public string ShipperUD
+        {
+            get { return mShipperUD; }
+            set { mShipperUD = value; }
+        }
+
         public string ShipperName
         {
             get { return mShipperName; }
@@ -76,6 +87,8 @@ namespace GIIS.ERP.WMS
         public void setDefaultValue()
         {
             mShipperAsk = "0";
+            mShipperTS = "0";
+            mShipperUD = "0";
             mShipperName = "";
             mShipperDetails = "";
             mShipperStatus = "0";

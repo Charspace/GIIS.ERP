@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class PRFEWarehouseCri
+    public class PRFEDirectCri
     {
-        public PRFEWarehouseCri()
+        public PRFEDirectCri()
         {
             setDefaultValue();
         }
@@ -36,6 +36,8 @@ namespace GIIS.ERP.WMS
         private string mRemark;
         private string mLogisticTypeAsk;
 
+
+
         private string mAgentTS;
         private string mAgentUD;
         private string mAgentName;
@@ -52,8 +54,36 @@ namespace GIIS.ERP.WMS
         private string mAgentAddress;
         private string mAgentDisplaySequence;
         private string mAgentRemark;
-       
 
+        private string mContainerAsk;
+        private string mContainerTS;
+        private string mContainerUD;
+        private string mContainerNo;
+        private string mContainerDetails;
+        private string mContainerSealNo;
+        private string mContainerWidth;
+        private string mContainerHeight;
+        private string mContainerBase;
+        private string mContainerType;
+        private string mContainerColor;
+        private string mContainerTruckTypeAsk;
+        private string mContainerCarrier;
+        private string mContainerVoy;
+        private string mContainerVesselNo;
+        private string mContainerETA;
+        private string mContainerETD;
+        private string mContainerCutOffDate;
+        private string mContainerPaperlessCode;
+        private string mContainerPicture;
+        private string mContainerCountryAsk;
+        private string mContainerTareWeight;
+        private string mContainerGrossWeight;
+        private string mContainerMattWeight;
+        private string mContainerTotalWeight;
+        private string mContainerStatus;
+        private string mContainerDisplaySequence;
+        private string mContainerRemark;
+        
         private string mShipperAsk;
         private string mShipperTS;
         private string mShippterUD;
@@ -644,6 +674,184 @@ namespace GIIS.ERP.WMS
             set { mSKURemark = value; }
         }
 
+        [DataMember]
+        public string ContainerAsk
+        {
+            get { return mContainerAsk; }
+            set { mContainerAsk = value; }
+        }
+        [DataMember]
+        public string ContainerTS
+        {
+            get { return mContainerTS; }
+            set { mContainerTS = value; }
+        }
+        [DataMember]
+        public string ContainerUD
+        {
+            get { return mContainerUD; }
+            set { mContainerUD = value; }
+        }
+        [DataMember]
+        public string ContainerNo
+        {
+            get { return mContainerNo; }
+            set { mContainerNo = value; }
+        }
+        [DataMember]
+        public string ContainerDetails
+        {
+            get { return mContainerDetails; }
+            set { mContainerDetails = value; }
+        }
+        [DataMember]
+        public string ContainerSealNo
+        {
+            get { return mContainerSealNo; }
+            set { mContainerSealNo = value; }
+        }
+        [DataMember]
+        public string ContainerWidth
+        {
+            get { return mContainerWidth; }
+            set { mContainerWidth = value; }
+        }
+        [DataMember]
+        public string ContainerHeight
+        {
+            get { return mContainerHeight; }
+            set { mContainerHeight = value; }
+        }
+        [DataMember]
+        public string ContainerBase
+        {
+            get { return mContainerBase; }
+            set { mContainerBase = value; }
+        }
+        [DataMember]
+        public string ContainerType
+        {
+            get { return mContainerType; }
+            set { mContainerType = value; }
+        }
+
+
+        [DataMember]
+        public string ContainerColor
+        {
+            get { return mContainerColor; }
+            set { mContainerColor = value; }
+        }
+        [DataMember]
+        public string ContainerTruckTypeAsk
+        {
+            get { return mContainerTruckTypeAsk; }
+            set { mContainerTruckTypeAsk = value; }
+        }
+        [DataMember]
+        public string ContainerCarrier
+        {
+            get { return mContainerCarrier; }
+            set { mContainerCarrier = value; }
+        }
+        [DataMember]
+
+        public string ContainerVoy
+        {
+            get { return mContainerVoy; }
+            set { mContainerVoy = value; }
+        }
+        [DataMember]
+        public string ContainerVesselNo
+        {
+            get { return mContainerVesselNo; }
+            set { mContainerVesselNo = value; }
+        }
+
+
+        [DataMember]
+        public string ContainerETA
+        {
+            get { return mContainerETA; }
+            set { mContainerETA = value; }
+        }
+        [DataMember]
+        public string ContainerETD
+        {
+            get { return mContainerETD; }
+            set { mContainerETD = value; }
+        }
+        [DataMember]
+
+        public string ContainerCutOffDate
+        {
+            get { return mContainerCutOffDate; }
+            set { mContainerCutOffDate = value; }
+        }
+        [DataMember]
+        public string ContainerPaperlessCode
+        {
+            get { return mContainerPaperlessCode; }
+            set { mContainerPaperlessCode = value; }
+        }
+        [DataMember]
+
+        public string ContainerPicture
+        {
+            get { return mContainerPicture; }
+            set { mContainerPicture = value; }
+        }
+        [DataMember]
+        public string ContainerCountryAsk
+        {
+            get { return mContainerCountryAsk; }
+            set { mContainerCountryAsk = value; }
+        }
+        [DataMember]
+        public string ContainerTareWeight
+        {
+            get { return mContainerTareWeight; }
+            set { mContainerTareWeight = value; }
+        }
+        [DataMember]
+        public string ContainerGrossWeight
+        {
+            get { return mContainerGrossWeight; }
+            set { mContainerGrossWeight = value; }
+        }
+        [DataMember]
+        public string ContainerMattWeight
+        {
+            get { return mContainerMattWeight; }
+            set { mContainerMattWeight = value; }
+        }
+        [DataMember]
+        public string ContainerTotalWeight
+        {
+            get { return mContainerTotalWeight; }
+            set { mContainerTotalWeight = value; }
+        }
+        [DataMember]
+        public string ContainerStatus
+        {
+            get { return mContainerStatus; }
+            set { mContainerStatus = value; }
+        }
+        [DataMember]
+        public string ContainerDisplaySequence
+        {
+            get { return mContainerDisplaySequence; }
+            set { mContainerDisplaySequence = value; }
+        }
+        [DataMember]
+
+        public string ContainerRemark
+        {
+            get { return mContainerRemark; }
+            set { mContainerRemark = value; }
+        }
+
+
         #endregion
         #region"Default Property"
         public void setDefaultValue()
@@ -687,6 +895,35 @@ namespace GIIS.ERP.WMS
             mAgentAddress = "";
             mAgentDisplaySequence = "0";
             mAgentRemark = "";
+
+            mContainerAsk = "0";
+            mContainerTS = "0";
+            mContainerUD = "0";
+            mContainerNo = "";
+            mContainerDetails = "";
+            mContainerSealNo = "";
+            mContainerWidth = "0";
+            mContainerHeight = "0";
+            mContainerBase = "0";
+            mContainerType = "";
+            mContainerColor = "";
+            mContainerTruckTypeAsk = "0";
+            mContainerCarrier = "";
+            mContainerVoy = "";
+            mContainerVesselNo = "";
+            mContainerETA = "";
+            mContainerETD = "";
+            mContainerCutOffDate = "";
+            mContainerPaperlessCode = "";
+            mContainerPicture = "";
+            mContainerCountryAsk = "0";
+            mContainerTareWeight = "0";
+            mContainerGrossWeight = "0";
+            mContainerMattWeight = "0";
+            mContainerTotalWeight = "0";
+            mContainerStatus = "0";
+            mContainerDisplaySequence = "0";
+            mContainerRemark = "";
 
             mShipperAsk = "0";
             mShipperTS = "0";

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace GIIS.ERP.WMS
 {
-    public class PRFEWarehouseCri
+    public class AllocatonWarehouseCri
     {
-        public PRFEWarehouseCri()
+        public AllocatonWarehouseCri()
         {
             setDefaultValue();
         }
@@ -34,25 +34,6 @@ namespace GIIS.ERP.WMS
         private string mNoOfContainer;
         private string mDisplaySequence;
         private string mRemark;
-        private string mLogisticTypeAsk;
-
-        private string mAgentTS;
-        private string mAgentUD;
-        private string mAgentName;
-        private string mAgentDetails;
-        private string mAgentNationalID;
-        private string mAgentBillingAddress;
-        private string mAgentShippingAddress;
-        private string mAgentCompanyName;
-        private string mAgentWebsite;
-        private string mAgentMobile;
-        private string mAgentEmail;
-        private string mAgentContactPersonName;
-        private string mAgentContactPersonMobile;
-        private string mAgentAddress;
-        private string mAgentDisplaySequence;
-        private string mAgentRemark;
-       
 
         private string mShipperAsk;
         private string mShipperTS;
@@ -249,118 +230,11 @@ namespace GIIS.ERP.WMS
 
         }
         [DataMember]
-        public string LogisticTypeAsk
-        {
-            get { return mLogisticTypeAsk; }
-            set { mLogisticTypeAsk = value; }
-
-        }
-        [DataMember]
         public List<ShipperCri> ShipperList
         {
             get { return mShipperList; }
             set { mShipperList = value; }
 
-        }
-
-        [DataMember]
-        public string AgentTS
-        {
-            get { return mAgentTS; }
-            set { mAgentTS = value; }
-        }
-        [DataMember]
-        public string AgentUD
-        {
-            get { return mAgentUD; }
-            set { mAgentUD = value; }
-        }
-        [DataMember]
-        public string AgentName
-        {
-            get { return mAgentName; }
-            set { mAgentName = value; }
-
-        }
-        [DataMember]
-        public string AgentDetails
-        {
-            get { return mAgentDetails; }
-            set { mAgentDetails = value; }
-        }
-        [DataMember]
-        public string AgentNationalID
-        {
-            get { return mAgentNationalID; }
-            set { mAgentNationalID = value; }
-        }
-        [DataMember]
-        public string AgentBillingAddress
-        {
-            get { return mAgentBillingAddress; }
-            set { mAgentBillingAddress = value; }
-        }
-        [DataMember]
-        public string AgentShippingAddress
-        {
-            get { return mAgentShippingAddress; }
-            set { mAgentShippingAddress = value; }
-        }
-        [DataMember]
-        public string AgentCompanyName
-        {
-            get { return mAgentCompanyName; }
-            set { mAgentCompanyName = value; }
-        }
-        [DataMember]
-        public string AgentWebsite
-        {
-            get { return mAgentWebsite; }
-            set { mAgentWebsite = value; }
-        }
-        [DataMember]
-        public string AgentMobile
-        {
-            get { return mAgentMobile; }
-            set { mAgentMobile = value; }
-        }
-        [DataMember]
-        public string AgentEmail
-        {
-            get { return mAgentEmail; }
-            set { mAgentEmail = value; }
-        }
-        [DataMember]
-        public string AgentContactPersonName
-        {
-            get { return mAgentContactPersonName; }
-            set { mAgentContactPersonName = value; }
-        }
-        
-        [DataMember]
-        public string AgentContactPersonMobile
-        {
-            get { return mAgentContactPersonMobile; }
-            set { mAgentContactPersonMobile = value; }
-        }
-        [DataMember]
-        public string AgentAddress
-        {
-            get { return mAgentAddress; }
-            set { mAgentAddress = value; }
-        }
-        [DataMember]
-        public string AgentDisplaySequence
-        {
-            get { return mAgentDisplaySequence; }
-            set { mAgentDisplaySequence = value; }
-        }
-
-        [DataMember]
-        public string AgentRemark
-        {
-            get { return mAgentRemark; }
-            set { mAgentRemark = value; }
         }
         [DataMember]
         public string ShipperAsk
@@ -669,24 +543,6 @@ namespace GIIS.ERP.WMS
             mBookingStatusAsk = "0";
             mDisplaySequence = "0";
             mRemark = "";
-            mLogisticTypeAsk = "0";
-
-            mAgentTS = "0";
-            mAgentUD = "0";
-            mAgentName = "";
-            mAgentDetails = "";
-            mAgentNationalID = "";
-            mAgentBillingAddress = "";
-            mAgentShippingAddress = "";
-            mAgentCompanyName = "";
-            mAgentWebsite = "";
-            mAgentMobile = "";
-            mAgentEmail = "";
-            mAgentContactPersonMobile = "";
-            mAgentContactPersonName = "";
-            mAgentAddress = "";
-            mAgentDisplaySequence = "0";
-            mAgentRemark = "";
 
             mShipperAsk = "0";
             mShipperTS = "0";
