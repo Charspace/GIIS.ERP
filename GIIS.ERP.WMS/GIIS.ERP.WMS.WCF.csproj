@@ -139,6 +139,7 @@
     <Compile Include="Json\TallyWarehouseDetailJson.cs" />
     <Compile Include="Json\TallyWarehouseListJson.cs" />
     <Compile Include="Json\TallyJson.cs" />
+    <Compile Include="Json\TransactionStatusJson.cs" />
     <Compile Include="Json\TruckTypeJson.cs" />
     <Compile Include="Json\UOMJson.cs" />
     <Compile Include="Json\CountryJson.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="obj\SKUBarcode.cs" />
     <Compile Include="obj\SKUBarcodeLocationJun.cs" />
     <Compile Include="obj\SKUChecker.cs" />
+    <Compile Include="obj\TransactionStatus.cs" />
     <Compile Include="obj\Tally.cs" />
     <Compile Include="obj\TruckPOJun.cs" />
     <Compile Include="obj\ControlGroup.cs" />
@@ -214,6 +216,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

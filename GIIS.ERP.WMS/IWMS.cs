@@ -265,5 +265,13 @@ namespace GIIS.ERP.WMS
            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "getCheckerDirect")]
         List<CheckerDirectJson> getCheckerDirect(CheckerDirectCri criteria);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Bare,
+           UriTemplate = "getTransactionStatusList")]
+        List<TransactionStatusJson> getTransactionStatusList(AuthorizationCri criteria);
     }
 }

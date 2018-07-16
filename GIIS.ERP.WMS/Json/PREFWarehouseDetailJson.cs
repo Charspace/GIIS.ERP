@@ -107,7 +107,7 @@ namespace GIIS.ERP.WMS
 
         #endregion
         #region"Public Property"
-        public string BookingAsk
+        public string Ask
         {
             get { return mBookingAsk; }
             set { mBookingAsk = value; }

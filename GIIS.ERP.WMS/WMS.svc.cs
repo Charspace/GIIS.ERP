@@ -980,6 +980,45 @@ namespace GIIS.ERP.WMS
         }
         #endregion
 
+        #region "getTransactionStatusList"
+        public List<TransactionStatusJson> getTransactionStatusList(AuthorizationCri criteria)
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            dic.Add("@UserID", criteria.UserID);
+            dic.Add("@Password", criteria.Password);
+            dic.Add("@ProductAsk", criteria.ProductAsk);
+
+            DataTable dt = mMasterBLL.executeSelectProcedure("CS_SP_WMS_TRANSACTION_STATUS", dic);
+            List<TransactionStatusJson> list = new List<TransactionStatusJson>();
+            #region "bind data"
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                TransactionStatusJson obj = new TransactionStatusJson();
+
+                try
+                {
+
+                    obj.Ask = dr[0].ToString();
+                    obj.TS = dr[1].ToString();
+                    obj.UD = dr[2].ToString();
+                    obj.StatusName = dr[3].ToString();
+                    obj.StatusDetails = dr[4].ToString();
+                    obj.DisplaySequence = dr[5].ToString();
+                    obj.UserRemark = dr[6].ToString();
+                }
+                catch
+                {
+                    continue;
+                }
+
+                list.Add(obj);
+            }
+            #endregion
+            return list;
+        }
+        #endregion
+
         #endregion
 
 
@@ -1649,7 +1688,7 @@ namespace GIIS.ERP.WMS
                     }
 
                     PREFWarehouseDetailJson prefjson = new PREFWarehouseDetailJson();
-                    prefjson.BookingAsk = dr[0].ToString();
+                    prefjson.Ask = dr[0].ToString();
                     prefjson.BookingID = dr[1].ToString();
                     prefjson.AgentAsk = dr[2].ToString();
                     prefjson.Shipper = dr[3].ToString();
@@ -2746,7 +2785,7 @@ namespace GIIS.ERP.WMS
                     }
 
                     CreatePicklistDetailJson dtl = new CreatePicklistDetailJson();
-                    dtl.BookingAsk = bookingAsk;
+                    dtl.Ask = bookingAsk;
 
                     dtl.AgentAsk = dr[17].ToString();
                     dtl.AgentTS = dr[18].ToString();
@@ -3454,7 +3493,7 @@ namespace GIIS.ERP.WMS
                     }
 
                     PREFDirectDetailJson dtljson = new PREFDirectDetailJson();
-                    dtljson.BookingAsk = dr[0].ToString();
+                    dtljson.Ask = dr[0].ToString();
                     dtljson.TS = dr[1].ToString();
                     dtljson.UD = dr[2].ToString();
                     dtljson.BookingID = dr[3].ToString();
